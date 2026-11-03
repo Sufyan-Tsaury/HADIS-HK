@@ -1,28 +1,38 @@
 import { useState, useMemo } from 'react';
 import { HADITHS_DATA, STAGES } from './data/hadiths';
 import type { HadithItem } from './data/hadiths';
-import { Header } from './components/Header';
-import { Sidebar } from './components/Sidebar';
-import { HadithFullEntry } from './components/HadithFullEntry';
-import { QuoteCardModal } from './components/QuoteCardModal';
-import { FivePillarsModal } from './components/FivePillarsModal';
-import { RelationQuizModal } from './components/RelationQuizModal';
-import { SavedHadithModal } from './components/SavedHadithModal';
-import { Info, RotateCcw } from 'lucide-react';
+import { DesktopSidebar } from './components/layout/DesktopSidebar';
+import { BottomNav } from './components/navigation/BottomNav';
+import type { MobileNavTab } from './components/navigation/BottomNav';
+import { SHORT_STAGE_LABELS } from './components/navigation/stageLabels';
+import { HadithListItem } from './components/hadith/HadithListItem';
+import { HadithReader } from './components/hadith/HadithReader';
+import { FilterBottomSheet } from './components/filters/FilterBottomSheet';
+import { EdukasiMenuSheet } from './components/modals/EdukasiMenuSheet';
+import { QuoteStudioView } from './components/quote-studio/QuoteStudioView';
+import { FivePillarsView } from './components/education/FivePillarsView';
+import { RelationQuizView } from './components/quiz/RelationQuizView';
+import { LibraryPage } from './pages/LibraryPage';
+import { HadithDetailPage } from './pages/HadithDetailPage';
+import { SavedPage } from './pages/SavedPage';
+import { Bookmark, Share2, RotateCcw, BookOpen } from 'lucide-react';
+
+type ActiveRoute = 'library' | 'detail' | 'quote' | 'pillars' | 'quiz' | 'saved';
 
 export function App() {
+  const [route, setRoute] = useState<ActiveRoute>('library');
+  const [previousRoute, setPreviousRoute] = useState<ActiveRoute>('library');
+
   const [selectedStageId, setSelectedStageId] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
-  // Modals for secondary tools
-  const [activeQuoteHadith, setActiveQuoteHadith] = useState<HadithItem | null>(null);
-  const [isOpenPillars, setIsOpenPillars] = useState<boolean>(false);
-  const [isOpenQuiz, setIsOpenQuiz] = useState<boolean>(false);
-  const [isOpenSaved, setIsOpenSaved] = useState<boolean>(false);
+  const [activeHadith, setActiveHadith] = useState<HadithItem>(HADITHS_DATA[0]);
 
-  // Saved Hadith IDs in localStorage
+  const [isFilterSheetOpen, setIsFilterSheetOpen] = useState<boolean>(false);
+  const [isEdukasiSheetOpen, setIsEdukasiSheetOpen] = useState<boolean>(false);
+
+  // Saved Hadith IDs persisted in localStorage
   const [savedIds, setSavedIds] = useState<string[]>(() => {
     try {
       const stored = localStorage.getItem('hadis_keluarga_saved');
@@ -33,8 +43,8 @@ export function App() {
   });
 
   const toggleSaveHadith = (id: string) => {
-    setSavedIds(prev => {
-      const next = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id];
+    setSavedIds((prev) => {
+      const next = prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id];
       try {
         localStorage.setItem('hadis_keluarga_saved', JSON.stringify(next));
       } catch (e) {
@@ -44,183 +54,409 @@ export function App() {
     });
   };
 
-  // Filter Hadiths
+  // Filtered Hadiths
   const filteredHadiths = useMemo(() => {
     return HADITHS_DATA.filter((item) => {
-      // Stage filter
       if (selectedStageId !== 'all' && item.stageId !== selectedStageId) {
         return false;
       }
 
-      // Tag filter
-      if (selectedTag && !item.tags.some(t => t.toLowerCase() === selectedTag.toLowerCase())) {
+      if (
+        selectedTag &&
+        !item.tags.some((t) => t.toLowerCase() === selectedTag.toLowerCase())
+      ) {
         return false;
       }
 
-      // Search Query
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
         const inTitle = item.title.toLowerCase().includes(q);
         const inTranslation = item.terjemahan.toLowerCase().includes(q);
         const inKitab = item.kitab.toLowerCase().includes(q);
+        const inNo = item.noHadis.toLowerCase().includes(q);
         const inRawi = item.rawi.toLowerCase().includes(q);
-        const inTags = item.tags.some(t => t.toLowerCase().includes(q));
+        const inTags = item.tags.some((t) => t.toLowerCase().includes(q));
         const inMubadalah = item.pemaknaanMubadalah.ringkasan.toLowerCase().includes(q);
-        return inTitle || inTranslation || inKitab || inRawi || inTags || inMubadalah;
+        return inTitle || inTranslation || inKitab || inNo || inRawi || inTags || inMubadalah;
       }
 
       return true;
     });
   }, [selectedStageId, selectedTag, searchQuery]);
 
-  const savedHadithList = useMemo(() => {
-    return HADITHS_DATA.filter(h => savedIds.includes(h.id));
-  }, [savedIds]);
+  const savedHadithList = useMemo(
+    () => HADITHS_DATA.filter((h) => savedIds.includes(h.id)),
+    [savedIds]
+  );
 
-  const currentStageInfo = STAGES.find(s => s.id === selectedStageId);
+  // Ensure Desktop Right Reading Pane stays in sync with filtered results when applicable
+  const desktopDisplayedHadith = useMemo(() => {
+    if (filteredHadiths.some((h) => h.id === activeHadith.id)) {
+      return activeHadith;
+    }
+    return filteredHadiths[0] || activeHadith;
+  }, [filteredHadiths, activeHadith]);
+
+  const navigateTo = (nextRoute: ActiveRoute) => {
+    setPreviousRoute(route);
+    setRoute(nextRoute);
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  };
+
+  const handleOpenHadith = (hadith: HadithItem) => {
+    setActiveHadith(hadith);
+    navigateTo('detail');
+  };
+
+  const handleOpenQuoteStudio = (hadith: HadithItem) => {
+    setActiveHadith(hadith);
+    navigateTo('quote');
+  };
+
+  const handleResetFilters = () => {
+    setSelectedStageId('all');
+    setSelectedTag(null);
+    setSearchQuery('');
+  };
+
+  const handleSelectTagFromReader = (tag: string) => {
+    setSelectedStageId('all');
+    setSelectedTag(tag);
+    setRoute('library');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const desktopActiveMode: 'library' | 'pillars' | 'quiz' | 'saved' | 'quote' =
+    route === 'pillars' || route === 'quiz' || route === 'saved' || route === 'quote'
+      ? route
+      : 'library';
+
+  const mobileActiveNavTab: MobileNavTab = useMemo(() => {
+    if (route === 'saved') return 'tersimpan';
+    if (route === 'pillars' || route === 'quiz') return 'edukasi';
+    return 'bacaan';
+  }, [route]);
+
+  const hasActiveFilter = selectedStageId !== 'all' || selectedTag !== null;
+
+  const desktopCanonicalIdx =
+    HADITHS_DATA.findIndex((h) => h.id === desktopDisplayedHadith.id) + 1;
+  const desktopStageIdx = STAGES.findIndex(
+    (s) => s.id === desktopDisplayedHadith.stageId
+  );
+  const desktopStageShort =
+    desktopStageIdx >= 0
+      ? `${desktopStageIdx + 1}. ${
+          SHORT_STAGE_LABELS[desktopDisplayedHadith.stageId] ||
+          STAGES[desktopStageIdx].title
+        }`
+      : desktopDisplayedHadith.stageId;
 
   return (
-    <div className="min-h-screen bg-white text-[#111827] flex flex-col font-sans">
-      {/* 1. Slim Academic Top Header */}
-      <Header
+    <div className="min-h-dvh bg-white text-[#111827] flex flex-col lg:flex-row">
+      {/* =================================================================
+          1. DESKTOP LEFT SIDEBAR (>= 1024px)
+      ================================================================= */}
+      <DesktopSidebar
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
+        selectedStageId={selectedStageId}
+        onSelectStage={setSelectedStageId}
+        selectedTag={selectedTag}
+        onSelectTag={setSelectedTag}
         savedCount={savedIds.length}
-        onOpenSaved={() => setIsOpenSaved(true)}
-        onToggleMobileMenu={() => setIsMobileSidebarOpen(true)}
+        activeDesktopView={desktopActiveMode}
+        onOpenLibrary={() => setRoute('library')}
+        onOpenPillars={() => navigateTo('pillars')}
+        onOpenQuiz={() => navigateTo('quiz')}
+        onOpenSaved={() => navigateTo('saved')}
+        onResetAll={handleResetFilters}
       />
 
-      {/* 2. Main Two-Column Layout */}
-      <div className="flex-1 max-w-7xl w-full mx-auto flex items-start">
-        {/* Left Column: Library Index Sidebar */}
-        <Sidebar
-          selectedStageId={selectedStageId}
-          onSelectStage={setSelectedStageId}
-          selectedTag={selectedTag}
-          onSelectTag={setSelectedTag}
-          savedCount={savedIds.length}
-          onOpenSaved={() => setIsOpenSaved(true)}
-          onOpenQuiz={() => setIsOpenQuiz(true)}
-          onOpenPillars={() => setIsOpenPillars(true)}
-          isOpenMobile={isMobileSidebarOpen}
-          onCloseMobile={() => setIsMobileSidebarOpen(false)}
-        />
+      {/* =================================================================
+          2. DESKTOP 3-COLUMN WORKSPACE (>= 1024px)
+      ================================================================= */}
+      <div className="hidden lg:flex flex-1 min-w-0">
+        {desktopActiveMode === 'library' ? (
+          <>
+            {/* Middle Column: Daftar Hadis */}
+            <section
+              aria-label="Daftar Riwayat Hadis"
+              className="lg:w-[300px] xl:w-[356px] shrink-0 h-dvh sticky top-0 overflow-y-auto border-r border-[#E5E7EB] bg-[#F9F7F5]/60 p-4 space-y-3"
+            >
+              <div className="flex items-center justify-between gap-2 pb-2 border-b border-[#E5E7EB]">
+                <div className="min-w-0">
+                  <h1 className="text-sm font-bold text-[#111827] truncate">
+                    {selectedStageId !== 'all'
+                      ? STAGES.find((s) => s.id === selectedStageId)?.title
+                      : selectedTag
+                      ? `Topik #${selectedTag}`
+                      : 'Seluruh Riwayat Hadis'}
+                  </h1>
+                  <p className="text-[11px] text-[#6B7280]">
+                    {filteredHadiths.length} hadis ditampilkan
+                  </p>
+                </div>
 
-        {/* Right Column: Reading Pane / Corpus Feed */}
-        <main className="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 bg-white">
-          {/* Active Section Header */}
-          <div className="pb-4 mb-6 border-b border-[#E5E7EB]">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div>
-                <h1 className="text-xl sm:text-2xl font-semibold text-[#111827] tracking-tight">
-                  {currentStageInfo ? currentStageInfo.title : 'Seluruh Hadis Hukum Keluarga Islam'}
-                </h1>
-                <p className="text-xs text-[#6B7280] mt-1">
-                  {currentStageInfo 
-                    ? currentStageInfo.tagline 
-                    : 'Kompilasi hadis hukum keluarga dengan pendekatan kesalingan (Mubadalah) dan maqashid syariah.'}
-                </p>
-              </div>
-
-              {/* Status & Reset */}
-              <div className="flex items-center gap-2 self-start sm:self-auto">
-                <span className="text-xs font-mono font-medium text-[#4B5563] bg-[#F9F7F5] border border-[#E5E1DC] px-2 py-1 rounded">
-                  {filteredHadiths.length} Riwayat
-                </span>
-
-                {(selectedStageId !== 'all' || selectedTag !== null || searchQuery !== '') && (
+                {(hasActiveFilter || searchQuery.trim() !== '') && (
                   <button
-                    onClick={() => {
-                      setSelectedStageId('all');
-                      setSelectedTag(null);
-                      setSearchQuery('');
-                    }}
-                    className="btn-outline px-2.5 py-1 text-xs flex items-center gap-1"
-                    title="Tampilkan semua hadis"
+                    type="button"
+                    onClick={handleResetFilters}
+                    className="min-h-[34px] px-2.5 py-1 rounded-lg bg-white border border-[#E5E7EB] text-[11px] font-semibold text-[#795A3F] hover:border-[#C6A17B] flex items-center gap-1 shrink-0"
                   >
                     <RotateCcw className="w-3 h-3" />
-                    <span>Reset Filter</span>
+                    <span>Reset</span>
                   </button>
                 )}
               </div>
-            </div>
 
-            {/* Active Tag Notice */}
-            {selectedTag && (
-              <div className="mt-2 text-xs text-[#9E744A] flex items-center gap-1 font-medium">
-                <span>Menampilkan topik:</span>
-                <span className="font-semibold underline">#{selectedTag}</span>
+              {filteredHadiths.length === 0 ? (
+                <div className="rounded-xl border border-[#E5E7EB] bg-white p-6 text-center space-y-2.5">
+                  <BookOpen className="w-6 h-6 text-[#9CA3AF] mx-auto" />
+                  <p className="text-xs font-semibold text-[#111827]">
+                    Tidak ada hadis yang cocok
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleResetFilters}
+                    className="btn-soft px-3 py-1.5 text-xs"
+                  >
+                    Reset Filter
+                  </button>
+                </div>
+              ) : (
+                <div className="space-y-2.5">
+                  {filteredHadiths.map((item) => {
+                    const num = HADITHS_DATA.findIndex((h) => h.id === item.id) + 1;
+                    return (
+                      <HadithListItem
+                        key={item.id}
+                        hadith={item}
+                        canonicalNumber={num}
+                        isSaved={savedIds.includes(item.id)}
+                        isActiveDesktop={desktopDisplayedHadith.id === item.id}
+                        onSelect={(h) => setActiveHadith(h)}
+                        onToggleSave={toggleSaveHadith}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+            </section>
+
+            {/* Right Column: Area Pembacaan Utama (Matches Screen 8 Reference) */}
+            <main className="flex-1 min-w-0 bg-white overflow-y-auto">
+              {/* Top Breadcrumb Bar */}
+              <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-xs border-b border-[#E5E7EB] px-6 xl:px-8 h-14 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-2 text-xs text-[#6B7280] font-medium truncate">
+                  <span className="text-[#795A3F] font-semibold">{desktopStageShort}</span>
+                  <span aria-hidden="true">›</span>
+                  <span className="text-[#111827] font-semibold">
+                    #{desktopCanonicalIdx}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => toggleSaveHadith(desktopDisplayedHadith.id)}
+                    aria-label={
+                      savedIds.includes(desktopDisplayedHadith.id)
+                        ? 'Hapus dari tersimpan'
+                        : 'Simpan hadis'
+                    }
+                    className="min-w-[40px] min-h-[40px] rounded-xl border border-[#E5E7EB] hover:border-[#C6A17B] flex items-center justify-center text-[#111827] transition"
+                  >
+                    <Bookmark
+                      className={`w-4 h-4 ${
+                        savedIds.includes(desktopDisplayedHadith.id)
+                          ? 'text-[#795A3F] fill-[#795A3F]'
+                          : ''
+                      }`}
+                    />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleOpenQuoteStudio(desktopDisplayedHadith)}
+                    className="btn-soft min-h-[40px] px-3.5 text-xs flex items-center gap-1.5"
+                  >
+                    <Share2 className="w-3.5 h-3.5" />
+                    <span>Kartu Kutipan</span>
+                  </button>
+                </div>
               </div>
-            )}
-          </div>
 
-          {/* Hadith Full-Text Feed */}
-          {filteredHadiths.length === 0 ? (
-            <div className="text-center py-16 bg-[#FFFFFF] border border-[#E5E7EB] rounded-md p-8 my-4">
-              <Info className="w-8 h-8 text-[#9CA3AF] mx-auto mb-2" />
-              <h3 className="text-sm font-semibold text-[#111827] mb-1">
-                Tidak ada hadis yang sesuai dengan kriteria
-              </h3>
-              <p className="text-xs text-[#6B7280] max-w-sm mx-auto mb-4">
-                Silakan ubah kata kunci pencarian atau pilih bab siklus keluarga lainnya pada menu indeks kiri.
-              </p>
-              <button
-                onClick={() => {
-                  setSelectedStageId('all');
-                  setSelectedTag(null);
-                  setSearchQuery('');
-                }}
-                className="btn-brown px-4 py-1.5 text-xs"
-              >
-                Tampilkan Semua Hadis
-              </button>
-            </div>
-          ) : (
-            <div className="space-y-2">
-              {filteredHadiths.map((hadith, index) => (
-                <HadithFullEntry
-                  key={hadith.id}
-                  hadith={hadith}
-                  entryIndex={index}
-                  isSaved={savedIds.includes(hadith.id)}
+              <div className="max-w-[78ch] mx-auto px-6 xl:px-10 py-6">
+                <HadithReader
+                  key={desktopDisplayedHadith.id}
+                  hadith={desktopDisplayedHadith}
+                  canonicalNumber={desktopCanonicalIdx}
+                  isSaved={savedIds.includes(desktopDisplayedHadith.id)}
                   onToggleSave={toggleSaveHadith}
-                  onOpenQuote={setActiveQuoteHadith}
+                  onOpenQuote={handleOpenQuoteStudio}
+                  onSelectTag={handleSelectTagFromReader}
                 />
-              ))}
-            </div>
-          )}
-        </main>
+              </div>
+            </main>
+          </>
+        ) : (
+          /* Desktop Secondary Pages (Pillars, Quiz, Saved, Quote Studio) */
+          <main className="flex-1 min-w-0 bg-white">
+            {desktopActiveMode === 'pillars' && (
+              <FivePillarsView
+                onBack={() => setRoute('library')}
+                onOpenQuiz={() => navigateTo('quiz')}
+                onExploreStage={(stageId) => {
+                  setSelectedStageId(stageId);
+                  setSelectedTag(null);
+                  setRoute('library');
+                }}
+              />
+            )}
+
+            {desktopActiveMode === 'quiz' && (
+              <RelationQuizView
+                onBack={() => setRoute('library')}
+                onOpenPillars={() => navigateTo('pillars')}
+                onExploreTopic={(tag) => {
+                  setSelectedStageId('all');
+                  setSelectedTag(tag);
+                  setRoute('library');
+                }}
+              />
+            )}
+
+            {desktopActiveMode === 'saved' && (
+              <SavedPage
+                savedHadiths={savedHadithList}
+                onBack={() => setRoute('library')}
+                onSelectHadith={(h) => {
+                  setActiveHadith(h);
+                  setRoute('library');
+                }}
+                onRemoveSaved={toggleSaveHadith}
+              />
+            )}
+
+            {desktopActiveMode === 'quote' && (
+              <QuoteStudioView
+                hadith={desktopDisplayedHadith}
+                onBack={() => setRoute('library')}
+              />
+            )}
+          </main>
+        )}
       </div>
 
-      {/* Secondary Tool Modals */}
-      <QuoteCardModal
-        hadith={activeQuoteHadith}
-        onClose={() => setActiveQuoteHadith(null)}
+      {/* =================================================================
+          3. MOBILE VIEWS (< 1024px)
+      ================================================================= */}
+      <div className="flex-1 min-w-0 lg:hidden">
+        {route === 'library' && (
+          <LibraryPage
+            filteredHadiths={filteredHadiths}
+            selectedStageId={selectedStageId}
+            selectedTag={selectedTag}
+            searchQuery={searchQuery}
+            savedIds={savedIds}
+            onSearchChange={setSearchQuery}
+            onSelectStage={setSelectedStageId}
+            onSelectTag={setSelectedTag}
+            onResetFilters={handleResetFilters}
+            onSelectHadith={handleOpenHadith}
+            onToggleSave={toggleSaveHadith}
+            onOpenFilterSheet={() => setIsFilterSheetOpen(true)}
+            onOpenSaved={() => navigateTo('saved')}
+          />
+        )}
+
+        {route === 'detail' && (
+          <HadithDetailPage
+            hadith={activeHadith}
+            isSaved={savedIds.includes(activeHadith.id)}
+            onBack={() => setRoute('library')}
+            onToggleSave={toggleSaveHadith}
+            onOpenQuote={handleOpenQuoteStudio}
+            onSelectHadith={(h) => setActiveHadith(h)}
+            onSelectTag={handleSelectTagFromReader}
+          />
+        )}
+
+        {route === 'quote' && (
+          <QuoteStudioView
+            hadith={activeHadith}
+            onBack={() =>
+              setRoute(previousRoute === 'detail' ? 'detail' : 'library')
+            }
+          />
+        )}
+
+        {route === 'pillars' && (
+          <FivePillarsView
+            onBack={() => setRoute('library')}
+            onOpenQuiz={() => navigateTo('quiz')}
+            onExploreStage={(stageId) => {
+              setSelectedStageId(stageId);
+              setSelectedTag(null);
+              setRoute('library');
+            }}
+          />
+        )}
+
+        {route === 'quiz' && (
+          <RelationQuizView
+            onBack={() => setRoute('library')}
+            onOpenPillars={() => navigateTo('pillars')}
+            onExploreTopic={(tag) => {
+              setSelectedStageId('all');
+              setSelectedTag(tag);
+              setRoute('library');
+            }}
+          />
+        )}
+
+        {route === 'saved' && (
+          <SavedPage
+            savedHadiths={savedHadithList}
+            onBack={() => setRoute('library')}
+            onSelectHadith={handleOpenHadith}
+            onRemoveSaved={toggleSaveHadith}
+          />
+        )}
+      </div>
+
+      {/* =================================================================
+          4. MOBILE BOTTOM NAVIGATION & NATIVE DIALOG BOTTOM SHEETS
+      ================================================================= */}
+      <BottomNav
+        activeTab={mobileActiveNavTab}
+        savedCount={savedIds.length}
+        hasActiveFilter={hasActiveFilter}
+        onSelectBacaan={() => setRoute('library')}
+        onOpenFilter={() => setIsFilterSheetOpen(true)}
+        onOpenEdukasi={() => setIsEdukasiSheetOpen(true)}
+        onSelectTersimpan={() => navigateTo('saved')}
       />
 
-      <FivePillarsModal
-        isOpen={isOpenPillars}
-        onClose={() => setIsOpenPillars(false)}
+      <FilterBottomSheet
+        isOpen={isFilterSheetOpen}
+        selectedStageId={selectedStageId}
+        selectedTag={selectedTag}
+        onApply={(nextStage, nextTag) => {
+          setSelectedStageId(nextStage);
+          setSelectedTag(nextTag);
+          setRoute('library');
+        }}
+        onClose={() => setIsFilterSheetOpen(false)}
       />
 
-      {isOpenQuiz && (
-        <RelationQuizModal
-          onClose={() => setIsOpenQuiz(false)}
-          onExploreTopic={(tag) => setSelectedTag(tag)}
-        />
-      )}
-
-      {isOpenSaved && (
-        <SavedHadithModal
-          savedHadiths={savedHadithList}
-          onClose={() => setIsOpenSaved(false)}
-          onOpenDetail={(h) => {
-            // Scroll to the specific hadith or filter by it
-            setSearchQuery(h.noHadis);
-          }}
-          onRemoveSaved={toggleSaveHadith}
-        />
-      )}
+      <EdukasiMenuSheet
+        isOpen={isEdukasiSheetOpen}
+        onClose={() => setIsEdukasiSheetOpen(false)}
+        onSelectPillars={() => navigateTo('pillars')}
+        onSelectQuiz={() => navigateTo('quiz')}
+      />
     </div>
   );
 }

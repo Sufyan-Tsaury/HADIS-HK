@@ -2,77 +2,167 @@
 
 :root {
   --bg-primary: #FFFFFF;
-  --bg-surface: #FFFFFF;
+  --bg-secondary: #F9F7F5;
+  --bg-warm-tint: #F6F1EA;
+  --brown-primary: #C6A17B;
+  --brown-dark: #795A3F;
+  --brown-darker: #634830;
   --text-primary: #111827;
-  --text-secondary: #4B5563;
-  --text-muted: #6B7280;
-  --border-light: #E5E7EB;
-  --accent-brown: #9E744A;
-  --accent-brown-light: #C6A17B;
-  --btn-brown-text: #2B2118;
+  --text-secondary: #6B7280;
+  --border-color: #E5E7EB;
+  --border-warm: #E5DCD0;
 }
 
 @layer base {
-  html, body {
-    background-color: #FFFFFF !important;
-    color: #111827;
+  html {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    letter-spacing: -0.011em;
+    line-height: 1.55;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100dvh;
+    overflow-x: hidden;
+    text-align: start;
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }
 
+/* Tipografi Arab Klasik & Akademik (Unitless line-height untuk skala proporsional) */
 .font-arabic {
   font-family: 'Amiri', 'Traditional Arabic', serif;
-  line-height: 2.3;
+  line-height: 2.35;
 }
 
-/* Tombol Aksen Cokelat Akademik */
+/* Native Modal Dialog & Bottom Sheet Rules (Modern Web Platform Standard) */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background-color: rgba(17, 24, 39, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+dialog.bottom-sheet-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0 0 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 88dvh;
+  border: none;
+  border-top: 1px solid var(--border-color);
+  border-radius: 1.25rem 1.25rem 0 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  dialog.bottom-sheet-dialog[open] {
+    margin: auto;
+    max-width: 30rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+  }
+}
+
+/* Design System Buttons */
+.btn-brown-solid {
+  background-color: var(--brown-dark);
+  color: #FFFFFF;
+  border: 1px solid var(--brown-dark);
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.btn-brown-solid:hover {
+  background-color: var(--brown-darker);
+  border-color: var(--brown-darker);
+}
+.btn-brown-solid:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .btn-brown,
 .btn-primary {
-  background-color: #C6A17B;
+  background-color: var(--brown-primary);
   color: #2B2118;
   border: 1px solid #B78D66;
-  border-radius: 6px;
+  border-radius: 0.625rem;
   font-weight: 600;
-  transition: all 0.15s ease-in-out;
+  transition: background-color 0.15s ease;
 }
 .btn-brown:hover,
 .btn-primary:hover {
   background-color: #B78D66;
 }
-.btn-brown:active,
-.btn-primary:active {
-  background-color: #A87951;
+
+.btn-soft {
+  background-color: var(--bg-warm-tint);
+  color: var(--brown-dark);
+  border: 1px solid var(--border-warm);
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.btn-soft:hover {
+  background-color: #EFE6DA;
+  border-color: var(--brown-primary);
 }
 
-/* Tombol Garis Tipis Netral */
 .btn-outline,
 .btn-secondary {
-  background-color: #FFFFFF;
-  color: #374151;
-  border: 1px solid #E5E7EB;
-  border-radius: 6px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
   font-weight: 500;
-  transition: all 0.15s ease-in-out;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 .btn-outline:hover,
 .btn-secondary:hover {
-  border-color: #C6A17B;
-  color: #111827;
+  border-color: var(--brown-primary);
+  background-color: var(--bg-secondary);
 }
 
-/* Minimalist Clean Scrollbar */
+/* Utilitas Horizontal Scroll Tanpa Scrollbar Mengganggu */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Minimalist Clean Scrollbar pada Desktop */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FFFFFF;
+  background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #E5E7EB;
+  background: #D1D5DB;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D1D5DB;
+  background: #9CA3AF;
 }

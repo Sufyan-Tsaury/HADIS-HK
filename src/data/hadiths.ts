@@ -1147,35 +1147,113 @@ export const HADITHS_DATA: HadithItem[] = [
   }
 ];
 
-export const PILAR_SAKINAH = [
+export interface PilarSakinahItem {
+  title: string;
+  shortLabel: string;
+  subtitle: string;
+  arabic: string;
+  ayatArab: string;
+  terjemahanAyat: string;
+  surah: string;
+  meaning: string;
+  implementasi: string[];
+  relatedStageId: HadithItem['stageId'];
+}
+
+export const POPULAR_TAGS: string[] = [
+  'Hak Perempuan',
+  'Persetujuan Mempelai',
+  'Akad Nikah',
+  'Perjanjian Kawin',
+  'Kerja Domestik',
+  'Nafkah Wajib',
+  'Istri Bekerja',
+  'Marital Consent',
+  'Anti-KDRT',
+  'Khulu',
+  'Hak Asuh',
+  'Peran Ayah'
+];
+
+export const PILAR_SAKINAH: PilarSakinahItem[] = [
   {
     title: 'Mitsaqan Ghalizhan',
+    shortLabel: 'Mitsaqan',
+    subtitle: '(Ikatan yang Kokoh)',
     arabic: 'مِيثَاقًا غَلِيظًا',
+    ayatArab: 'وَأَخَذْنَ مِنكُم مِّيثَاقًا غَلِيظًا',
+    terjemahanAyat: '"Dan mereka (istri-istrimu) telah mengambil dari kamu perjanjian yang kuat."',
     surah: 'QS. An-Nisa: 21',
-    meaning: 'Ikatan perjanjian yang kokoh dan suci di hadapan Allah, menuntut amanah serta komitmen saling menjaga sepanjang hayat.'
+    meaning: 'Pernikahan adalah ikatan perjanjian yang kokoh dan suci di hadapan Allah, menuntut amanah serta komitmen saling menjaga sepanjang hayat.',
+    implementasi: [
+      'Menepati seluruh syarat dan komitmen yang disepakati saat akad pernikahan.',
+      'Tidak menjadikan ancaman talak sebagai senjata saat terjadi perbedaan pendapat.',
+      'Menjaga kehormatan, privasi, dan rahasia pasangan baik di dalam maupun di luar rumah.'
+    ],
+    relatedStageId: 'akad'
   },
   {
     title: 'Zawaj',
+    shortLabel: 'Zawaj',
+    subtitle: '(Berpasangan & Setara)',
     arabic: 'زَوْج',
-    surah: 'QS. Ar-Rum: 21',
-    meaning: 'Prinsip berpasangan dan kebermitraan yang setara; menolak hubungan hierarkis atasan-bawahan atau penindasan sepihak.'
+    ayatArab: 'هُنَّ لِبَاسٌ لَّكُمْ وَأَنتُمْ لِبَاسٌ لَّهُنَّ',
+    terjemahanAyat: '"Mereka adalah pakaian bagimu, dan kamu pun adalah pakaian bagi mereka."',
+    surah: 'QS. Al-Baqarah: 187 & QS. Ar-Rum: 21',
+    meaning: 'Prinsip berpasangan dan kebermitraan yang setara; suami dan istri saling melindungi, menghangatkan, dan melengkapi tanpa relasi atasan-bawahan.',
+    implementasi: [
+      'Bahu-membahu mengurus pekerjaan domestik (khidmah al-bayt) sebagaimana teladan Nabi ﷺ.',
+      'Saling mendukung pengembangan ilmu, kesehatan mental, dan kemaslahatan pasangan.',
+      'Menempatkan pasangan sebagai sahabat sejajar dalam suka maupun duka.'
+    ],
+    relatedStageId: 'domestik'
   },
   {
     title: "Mu'asyarah bi al-Ma'ruf",
+    shortLabel: "Mu'asyarah",
+    subtitle: '(Perlakuan Bermartabat)',
     arabic: 'مُعَاشَرَةٌ بِالْمَعْرُوفِ',
+    ayatArab: 'وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ',
+    terjemahanAyat: '"Dan bergaullah dengan mereka secara patut (bermartabat dan penuh kebaikan)."',
     surah: 'QS. An-Nisa: 19',
-    meaning: 'Saling memperlakukan dengan baik, patut, dan bermartabat dalam tutur kata, pembagian tugas, hingga keintiman.'
+    meaning: 'Saling memperlakukan dengan baik, patut, santun, dan bermartabat dalam tutur kata, pemenuhan nafkah, apresiasi harian, hingga keintiman.',
+    implementasi: [
+      'Menghargai masakan dan jerih payah pasangan serta tidak pernah mencela kekurangannya.',
+      'Menolak mutlak segala bentuk kekerasan fisik, verbal, psikis, maupun penelantaran ekonomi.',
+      'Memberikan nafkah secara layak dan transparan sesuai kesanggupan tanpa mengungkit-ungkit.'
+    ],
+    relatedStageId: 'konflik'
   },
   {
     title: 'Tasyawur',
+    shortLabel: 'Tasyawur',
+    subtitle: '(Musyawarah Terbuka)',
     arabic: 'تَشَاوُر',
+    ayatArab: 'فَإِنْ أَرَادَا فِصَالًا عَن تَرَاضٍ مِّنْهُمَا وَتَشَاوُرٍ فَلَا جُنَاحَ عَلَيْهِمَا',
+    terjemahanAyat: '"Apabila keduanya ingin menyapih (anaknya) berdasarkan kerelaan dan permusyawaratan antara keduanya, maka tidak ada dosa atas keduanya."',
     surah: 'QS. Al-Baqarah: 233',
-    meaning: 'Kebiasaan saling bermusyawarah dan berdialog secara terbuka dalam mengambil segala keputusan rumah tangga.'
+    meaning: 'Kebiasaan saling bermusyawarah dan berdialog secara terbuka dalam mengambil segala keputusan penting rumah tangga dan pengasuhan anak.',
+    implementasi: [
+      'Merencanakan anggaran keuangan keluarga, tabungan, dan kebutuhan rumah tangga secara bersama.',
+      'Berdiskusi setara terkait jarak kehamilan, pola asuh, dan pendidikan anak laki-laki maupun perempuan.',
+      'Mendengarkan pendapat pasangan dengan empati tanpa mendominasi percakapan.'
+    ],
+    relatedStageId: 'pengasuhan'
   },
   {
     title: 'Taradhin',
+    shortLabel: 'Taradhin',
+    subtitle: '(Kerelaan Timbal Balik)',
     arabic: 'تَرَاضٍ',
+    ayatArab: 'عَن تَرَاضٍ مِّنْهُمَا وَتَشَاوُرٍ',
+    terjemahanAyat: '"...berdasarkan kerelaan yang tulus dan permusyawaratan di antara keduanya."',
     surah: 'QS. Al-Baqarah: 233',
-    meaning: 'Saling memberi kenyamanan dan kerelaan tulus dari kedua belah pihak; menolak segala bentuk paksaan atau manipulasi.'
+    meaning: 'Saling memberi kenyamanan dan kerelaan tulus dari kedua belah pihak dalam setiap urusan pernikahan; menolak segala bentuk paksaan atau manipulasi.',
+    implementasi: [
+      'Memastikan persetujuan sukarela kedua mempelai sejak proses khithbah dan akad nikah.',
+      'Menjaga prinsip marital consent: memperhatikan kesiapan fisik dan batin pasangan dalam hubungan intim.',
+      'Menghormati otonomi harta pribadi serta kontribusi ekonomi pasangan dengan penuh keridhaan.'
+    ],
+    relatedStageId: 'keintiman'
   }
 ];
