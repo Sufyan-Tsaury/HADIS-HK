@@ -4,10 +4,10 @@ import {
   ScrollText,
   Home,
   Wallet,
-  Sparkles,
   ShieldAlert,
   Scale,
   Users,
+  Baby,
   BookOpen
 } from 'lucide-react';
 
@@ -33,7 +33,7 @@ export const StageIcon: React.FC<StageIconProps> = ({ stageId, className = 'w-4 
     case 'perceraian':
       return <Scale className={className} />;
     case 'pengasuhan':
-      return <Sparkles className={className} />;
+      return <Baby className={className} />;
     default:
       return <BookOpen className={className} />;
   }

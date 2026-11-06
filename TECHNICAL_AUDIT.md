@@ -122,7 +122,7 @@ Aplikasi sengaja **tidak menggunakan `react-router-dom`**, melainkan mengadopsi 
 | **4** | **Sanad Arab & Terjemah Sanad** | **Aktif (100%)** | Rantai transmisi hadis lengkap dengan harakat, dilengkapi tombol sakelar (*toggle*) show/hide sanad untuk kenyamanan fokus pembaca. |
 | **5** | **Matn Arab dengan Pengatur Ukuran** | **Aktif (100%)** | Teks inti hadis Arab berharakat penuh menggunakan font *Amiri* / *Noto Naskh Arabic* dengan kontrol ukuran proporsional (A- `22px`, A `26px`, A+ `32px`). |
 | **6** | **Takhrij Sumber Hadis Resmi** | **Aktif (100%)** | Referensi kitab primer (Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Sunan at-Tirmidzi, dll.), nama bab, dan nomor hadis terstandar. |
-| **7** | **Tab Analisis Hermeneutika Mubadalah** | **Aktif (100%)** | Pembacaan relasi kesalingan gender berbasis metodologi Dr. Faqihuddin Abdul Kodir: ringkasan, 'illat hukum, poin kesalingan, dan aplikasi masa kini. |
+| **7** | **Tab Analisis Hermeneutika Mubadalah** | **Aktif (100%)** | Pembacaan relasi kesalingan gender berbasis metodologi Prof. Dr. Faqihuddin Abdul Kodir, MA.: ringkasan, 'illat hukum, poin kesalingan, dan aplikasi masa kini. |
 | **8** | **Tab Fiqh Komparatif 4 Mazhab & KHI** | **Aktif (100%)** | Matriks pandangan Mazhab Hanafi, Maliki, Syafi'i, Hanbali, serta integrasi pasal Kompilasi Hukum Islam (KHI) di Indonesia. |
 | **9** | **Kaidah Operasional Pasutri** | **Aktif (100%)** | Pedoman praktis dan aplikatif bagi suami dan istri dalam kehidupan sehari-hari berdasarkan hadis terkait. |
 | **10** | **Audio Text-to-Speech (TTS)** | **Aktif (100%)** | Pembacaan audio otomatis terjemahan Indonesia menggunakan native Web Speech API dengan indikator status putar/berhenti. |

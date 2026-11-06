@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronLeft, GraduationCap, Building2, MapPin, BookOpen, Award, Sparkles, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { ChevronLeft, GraduationCap, Building2, MapPin, BookOpen, Award, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { BrandLogoMark } from '../components/common/BrandLogo';
 
 interface AboutProfilePageProps {
@@ -192,7 +192,7 @@ export const AboutProfilePage: React.FC<AboutProfilePageProps> = ({ onBack, onEx
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
             <div className="p-3.5 rounded-xl bg-[#F9F7F5] border border-[#E5E7EB] space-y-1">
               <div className="flex items-center gap-1.5 text-xs font-bold text-[#795A3F]">
-                <Sparkles className="w-3.5 h-3.5 text-[#C6A17B]" />
+                <BookOpen className="w-3.5 h-3.5 text-[#C6A17B]" />
                 <span>Sanad &amp; Matn Sahih</span>
               </div>
               <p className="text-[11px] text-[#6B7280] leading-snug">

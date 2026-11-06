@@ -48,7 +48,7 @@ export const STAGES: Stage[] = [
   {
     id: 'pra-nikah',
     title: '1. Pra-Nikah & Khithbah',
-    icon: 'Sparkles',
+    icon: 'Users',
     tagline: 'Kriteria Pasangan, Kafa\'ah Takwa, Hak Otonomi Memilih & Larangan Kawin Paksa',
     badge: 'Fondasi Awal'
   },

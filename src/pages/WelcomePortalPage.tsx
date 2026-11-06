@@ -6,7 +6,6 @@ import {
   GraduationCap, 
   ShieldCheck, 
   HeartHandshake, 
-  Sparkles, 
   Scale, 
   Quote
 } from 'lucide-react';
@@ -114,7 +113,7 @@ export const WelcomePortalPage: React.FC<WelcomePortalPageProps> = ({
       {/* =================================================================
           2. HERO SECTION: INTRODUKSI GERBANG UTAMA
       ================================================================= */}
-      <section className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-gradient-to-b from-white via-white to-[#F9F7F5] border-b border-[#E5E7EB]">
+      <section className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 bg-[#FFFFFF] border-b border-[#E5E7EB]">
         {/* Subtle Architectural Silhouette Background */}
         <div className="absolute right-0 top-0 bottom-0 w-96 pointer-events-none opacity-[0.035] hidden lg:block">
           <svg viewBox="0 0 300 400" fill="#795A3F" className="w-full h-full">
@@ -124,8 +123,8 @@ export const WelcomePortalPage: React.FC<WelcomePortalPageProps> = ({
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6 relative z-10">
           {/* Badge Akademik */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EFEA] border border-[#E5E7EB] text-[#795A3F] text-xs font-semibold tracking-wide">
-            <Sparkles className="w-3.5 h-3.5 text-[#C6A17B]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#F3EFEA] border border-[#E5E7EB] text-[#795A3F] text-xs font-semibold tracking-wide">
+            <span className="text-[#C6A17B] text-xs font-serif leading-none" aria-hidden="true">◆</span>
             <span>Kajian Fiqh al-Usrah Berbasis Kesalingan (Qira&apos;ah Mubadalah)</span>
           </div>
 
@@ -184,22 +183,22 @@ export const WelcomePortalPage: React.FC<WelcomePortalPageProps> = ({
           </div>
         </div>
 
-        {/* Floating Indicator */}
+        {/* Calm Navigation Indicator */}
         <div className="flex justify-center mt-8">
           <button
             type="button"
             onClick={() => scrollToSection('mubadalah')}
             aria-label="Gulir ke konten metodologi"
-            className="text-[#9CA3AF] hover:text-[#795A3F] transition animate-pulse-down flex flex-col items-center gap-1 text-[11px]"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#6B7280] hover:text-[#795A3F] transition py-1.5 px-3.5 rounded-lg border border-[#E5E7EB] bg-white hover:bg-[#F3EFEA]"
           >
-            <span>Gulir untuk Menjelajahi</span>
-            <ArrowDown className="w-4 h-4" />
+            <span>Eksplorasi Metodologi &amp; 8 Siklus</span>
+            <ArrowDown className="w-3.5 h-3.5 text-[#C6A17B]" />
           </button>
         </div>
       </section>
 
       {/* =================================================================
-          3. SECTION: PARADIGMA QIRA'AH MUBADALAH (DR. FAQIHUDDIN ABDUL KODIR)
+          3. SECTION: PARADIGMA QIRA'AH MUBADALAH (PROF. DR. FAQIHUDDIN ABDUL KODIR, MA.)
       ================================================================= */}
       <section
         id="mubadalah"
@@ -215,7 +214,7 @@ export const WelcomePortalPage: React.FC<WelcomePortalPageProps> = ({
               Gagasan Qira&apos;ah Mubadalah: Membaca Hadis Secara Resiprokal
             </h2>
             <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed max-w-2xl">
-              Dipelopori oleh cendekiawan muslim <strong>Dr. Faqihuddin Abdul Kodir</strong>, metode 
+              Dipelopori oleh cendekiawan muslim <strong>Prof. Dr. Faqihuddin Abdul Kodir, MA.</strong>, metode 
               <em> Qira&apos;ah Mubadalah</em> (pembacaan kesalingan) adalah kerangka hermeneutika hadis 
               yang memastikan bahwa pesan keadilan Islam berlaku setara bagi laki-laki dan perempuan.
             </p>
@@ -230,15 +229,15 @@ export const WelcomePortalPage: React.FC<WelcomePortalPageProps> = ({
               selama memiliki kapasitas kemanusiaan yang sama sebagai subjek mukallaf.&rdquo;
             </p>
             <div className="flex items-center gap-3 pt-2">
-              <div className="w-9 h-9 rounded-full bg-[#795A3F] text-white flex items-center justify-center font-bold text-xs">
-                FK
+              <div className="w-10 h-10 rounded-full bg-[#795A3F] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                Prof
               </div>
               <div>
-                <span className="block text-xs font-bold text-[#111827]">
-                  Dr. Faqihuddin Abdul Kodir
+                <span className="block text-sm font-bold text-[#111827]">
+                  Prof. Dr. Faqihuddin Abdul Kodir, MA.
                 </span>
-                <span className="block text-[11px] text-[#6B7280]">
-                  Penggagas Hermeneutika Qira&apos;ah Mubadalah • Dosen &amp; Penulis Kitab Fiqh al-Usrah
+                <span className="block text-xs text-[#6B7280]">
+                  Guru Besar Ilmu Fikih &amp; Hermeneutika Gender • Penggagas Qira&apos;ah Mubadalah
                 </span>
               </div>
             </div>
