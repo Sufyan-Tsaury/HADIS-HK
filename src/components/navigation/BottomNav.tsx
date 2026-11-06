@@ -25,7 +25,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
   return (
     <nav
       aria-label="Navigasi Utama Mobile"
-      className="fixed bottom-0 inset-x-0 z-30 bg-[#301A05] border-t border-[#4C2605] lg:hidden pb-[env(safe-area-inset-bottom)] shadow-lg"
+      className="fixed bottom-0 inset-x-0 z-30 bg-white border-t border-[#E5E7EB] lg:hidden pb-[env(safe-area-inset-bottom)] shadow-xs"
     >
       <div className="grid grid-cols-4 max-w-lg mx-auto">
         <button
@@ -34,14 +34,14 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           aria-label="Menu Bacaan Hadis"
           className={`min-h-[58px] flex flex-col items-center justify-center gap-1 text-[11px] font-medium transition relative ${
             activeTab === 'bacaan'
-              ? 'text-[#FFF9F5] font-semibold'
-              : 'text-[#D9D0C4] hover:text-[#FFF9F5]'
+              ? 'text-[#795A3F] font-semibold'
+              : 'text-[#6B7280] hover:text-[#111827]'
           }`}
         >
           {activeTab === 'bacaan' && (
-            <span className="absolute top-0 inset-x-6 h-0.5 bg-[#C7B39C] rounded-full" />
+            <span className="absolute top-0 inset-x-6 h-0.5 bg-[#C6A17B] rounded-full" />
           )}
-          <BookOpen className="w-5 h-5" />
+          <BookOpen className={`w-5 h-5 ${activeTab === 'bacaan' ? 'text-[#795A3F]' : 'text-[#6B7280]'}`} />
           <span>Bacaan</span>
         </button>
 
@@ -51,14 +51,14 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           aria-label="Buka Filter Topik"
           className={`min-h-[58px] flex flex-col items-center justify-center gap-1 text-[11px] font-medium transition relative ${
             activeTab === 'filter' || hasActiveFilter
-              ? 'text-[#FFF9F5] font-semibold'
-              : 'text-[#D9D0C4] hover:text-[#FFF9F5]'
+              ? 'text-[#795A3F] font-semibold'
+              : 'text-[#6B7280] hover:text-[#111827]'
           }`}
         >
           <div className="relative">
-            <SlidersHorizontal className="w-5 h-5" />
+            <SlidersHorizontal className={`w-5 h-5 ${activeTab === 'filter' || hasActiveFilter ? 'text-[#795A3F]' : 'text-[#6B7280]'}`} />
             {hasActiveFilter && (
-              <span className="absolute -top-1 -right-1.5 w-2 h-2 rounded-full bg-[#B09768]" />
+              <span className="absolute -top-1 -right-1.5 w-2 h-2 rounded-full bg-[#C6A17B]" />
             )}
           </div>
           <span>Filter</span>
@@ -70,14 +70,14 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           aria-label="Menu Edukasi Sakinah & Kuis"
           className={`min-h-[58px] flex flex-col items-center justify-center gap-1 text-[11px] font-medium transition relative ${
             activeTab === 'edukasi'
-              ? 'text-[#FFF9F5] font-semibold'
-              : 'text-[#D9D0C4] hover:text-[#FFF9F5]'
+              ? 'text-[#795A3F] font-semibold'
+              : 'text-[#6B7280] hover:text-[#111827]'
           }`}
         >
           {activeTab === 'edukasi' && (
-            <span className="absolute top-0 inset-x-6 h-0.5 bg-[#C7B39C] rounded-full" />
+            <span className="absolute top-0 inset-x-6 h-0.5 bg-[#C6A17B] rounded-full" />
           )}
-          <Scale className="w-5 h-5" />
+          <Scale className={`w-5 h-5 ${activeTab === 'edukasi' ? 'text-[#795A3F]' : 'text-[#6B7280]'}`} />
           <span>Edukasi</span>
         </button>
 
@@ -87,17 +87,17 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           aria-label={`Koleksi Tersimpan (${savedCount})`}
           className={`min-h-[58px] flex flex-col items-center justify-center gap-1 text-[11px] font-medium transition relative ${
             activeTab === 'tersimpan'
-              ? 'text-[#FFF9F5] font-semibold'
-              : 'text-[#D9D0C4] hover:text-[#FFF9F5]'
+              ? 'text-[#795A3F] font-semibold'
+              : 'text-[#6B7280] hover:text-[#111827]'
           }`}
         >
           {activeTab === 'tersimpan' && (
-            <span className="absolute top-0 inset-x-6 h-0.5 bg-[#C7B39C] rounded-full" />
+            <span className="absolute top-0 inset-x-6 h-0.5 bg-[#C6A17B] rounded-full" />
           )}
           <div className="relative">
-            <Bookmark className={`w-5 h-5 ${activeTab === 'tersimpan' ? 'fill-current' : ''}`} />
+            <Bookmark className={`w-5 h-5 ${activeTab === 'tersimpan' ? 'text-[#795A3F] fill-[#795A3F]' : 'text-[#6B7280]'}`} />
             {savedCount > 0 && (
-              <span className="absolute -top-1 -right-2 min-w-[16px] h-4 px-1 rounded-full bg-[#B09768] text-[#220B02] text-[10px] font-bold flex items-center justify-center">
+              <span className="absolute -top-1 -right-2 min-w-[16px] h-4 px-1 rounded-full bg-[#795A3F] text-white text-[10px] font-bold flex items-center justify-center">
                 {savedCount}
               </span>
             )}

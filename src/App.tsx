@@ -429,15 +429,17 @@ export function App() {
       {/* =================================================================
           4. MOBILE BOTTOM NAVIGATION & NATIVE DIALOG BOTTOM SHEETS
       ================================================================= */}
-      <BottomNav
-        activeTab={mobileActiveNavTab}
-        savedCount={savedIds.length}
-        hasActiveFilter={hasActiveFilter}
-        onSelectBacaan={() => setRoute('library')}
-        onOpenFilter={() => setIsFilterSheetOpen(true)}
-        onOpenEdukasi={() => setIsEdukasiSheetOpen(true)}
-        onSelectTersimpan={() => navigateTo('saved')}
-      />
+      {(route === 'library' || route === 'saved') && (
+        <BottomNav
+          activeTab={mobileActiveNavTab}
+          savedCount={savedIds.length}
+          hasActiveFilter={hasActiveFilter}
+          onSelectBacaan={() => setRoute('library')}
+          onOpenFilter={() => setIsFilterSheetOpen(true)}
+          onOpenEdukasi={() => setIsEdukasiSheetOpen(true)}
+          onSelectTersimpan={() => navigateTo('saved')}
+        />
+      )}
 
       <FilterBottomSheet
         isOpen={isFilterSheetOpen}

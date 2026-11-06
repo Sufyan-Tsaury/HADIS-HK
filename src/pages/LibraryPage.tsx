@@ -45,7 +45,7 @@ export const LibraryPage: React.FC<LibraryPageProps> = ({
   const activeStage = STAGES.find((s) => s.id === selectedStageId);
 
   return (
-    <div className="min-h-dvh bg-[#FDF9F5] pb-24">
+    <div className="min-h-dvh bg-white pb-24">
       {/* Mobile Header + Search */}
       <AppHeader
         searchQuery={searchQuery}
@@ -122,9 +122,9 @@ export const LibraryPage: React.FC<LibraryPageProps> = ({
                   <button
                     type="button"
                     onClick={() => onSelectTag(null)}
-                    className="px-2 py-0.5 rounded bg-[#4C2605] text-[#FFF9F5] font-semibold text-[11px] hover:bg-[#220B02]"
+                    className="px-2 py-0.5 rounded bg-[#795A3F] text-white font-semibold text-[11px] hover:bg-[#5C432E]"
                   >
-                    #{selectedTag} ×
+                    {selectedTag} ×
                   </button>
                 )}
                 {searchQuery.trim() && (

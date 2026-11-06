@@ -17,23 +17,23 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
   onLogoClick,
 }) => {
   return (
-    <header className="sticky top-0 z-20 bg-[#FDF9F5]/95 backdrop-blur-sm border-b border-[#D9D0C4] lg:hidden">
+    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b border-[#E5E7EB] lg:hidden">
       <div className="px-4 pt-3 pb-2.5 space-y-3">
-        {/* Brand Row */}
+        {/* Brand Row Matching Screen 1 */}
         <div className="flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={onLogoClick}
             className="flex items-center gap-2.5 text-left min-h-[44px]"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#301A05] text-[#FFF9F5] border border-[#6B5133] flex items-center justify-center font-bold text-sm tracking-tight shrink-0 shadow-xs">
+            <div className="w-10 h-10 rounded-xl bg-[#795A3F] text-white flex items-center justify-center font-bold text-sm tracking-tight shrink-0 shadow-xs">
               HK
             </div>
             <div>
-              <span className="block text-base font-bold text-[#352719] font-display leading-tight tracking-wide">
+              <span className="block text-base font-bold text-[#111827] leading-tight tracking-wide">
                 Hadis HK
               </span>
-              <span className="block text-[11px] text-[#6B5B49] leading-tight mt-0.5">
+              <span className="block text-[11px] text-[#6B7280] leading-tight mt-0.5">
                 Riset Hadis • Hukum Keluarga Islam
               </span>
             </div>
@@ -43,34 +43,32 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
             type="button"
             onClick={onOpenSaved}
             aria-label={`Koleksi Tersimpan (${savedCount})`}
-            className="min-w-[44px] min-h-[44px] rounded-xl border border-[#D9D0C4] bg-white hover:bg-[#F7F3EF] flex items-center justify-center relative text-[#352719] transition shadow-xs"
+            className="min-w-[44px] min-h-[44px] -mr-2 rounded-xl flex items-center justify-center relative text-[#111827] hover:bg-[#F9F7F5] transition"
           >
-            <Bookmark className={`w-5 h-5 ${savedCount > 0 ? 'text-[#301A05] fill-[#301A05]' : 'text-[#6B5B49]'}`} />
+            <Bookmark className={`w-5 h-5 ${savedCount > 0 ? 'text-[#795A3F] fill-[#795A3F]' : 'text-[#6B7280]'}`} />
             {savedCount > 0 && (
-              <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-[#301A05] text-[#FFF9F5] text-[10px] font-bold flex items-center justify-center border border-[#B09768]">
-                {savedCount}
-              </span>
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#795A3F]" />
             )}
           </button>
         </div>
 
-        {/* Search Input Row */}
+        {/* Search Input Row Matching Screen 1 */}
         <div className="relative">
-          <Search className="w-4 h-4 text-[#6B5B49] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <Search className="w-4 h-4 text-[#6B7280] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="Cari hadis, tema, kitab, atau perawi..."
+            placeholder="Cari hadis, tema, atau kata kunci..."
             aria-label="Pencarian Hadis"
-            className="w-full min-h-[44px] pl-10 pr-10 rounded-xl border border-[#D9D0C4] bg-white text-base sm:text-sm text-[#352719] placeholder-[#8A8177] focus:outline-none focus:border-[#B09768] focus:ring-1 focus:ring-[#B09768] transition"
+            className="w-full min-h-[42px] pl-10 pr-10 rounded-xl border border-[#E5E7EB] bg-white text-sm text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:border-[#C6A17B] focus:ring-1 focus:ring-[#C6A17B] transition"
           />
           {searchQuery && (
             <button
               type="button"
               onClick={() => onSearchChange('')}
               aria-label="Hapus pencarian"
-              className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[36px] min-h-[36px] flex items-center justify-center text-[#6B5B49] hover:text-[#352719] rounded-lg"
+              className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[36px] min-h-[36px] flex items-center justify-center text-[#6B7280] hover:text-[#111827] rounded-lg"
             >
               <X className="w-4 h-4" />
             </button>

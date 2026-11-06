@@ -1,7 +1,8 @@
-# DESIGN.md — Spesifikasi Sistem Desain Aplikasi Masjid & Ibadah
+# DESIGN.md — Spesifikasi Sistem Desain Hadis Hukum Keluarga Islam (Hadis HK)
 
-> **Sumber acuan:** gambar referensi `Prototype.jpg` (kolase beberapa layar aplikasi).  
-> **Status spesifikasi:** reverse-engineering visual, bukan file desain sumber. Nilai warna dan dimensi di bawah merupakan estimasi implementasi dari gambar raster beresolusi 736 × 1308 px. Gunakan hierarki, karakter, dan komposisi visual sebagai acuan; lakukan verifikasi akhir pada layar perangkat saat implementasi.
+> **Platform:** Hadis Hukum Keluarga Islam (Hadis HK) — Studi Fiqh al-Usrah Berbasis Kesalingan (Mubadalah)  
+> **Arah Visual:** *Warm Islamic Heritage* (Editorial, Khidmat, & Scholarly Utility)  
+> **Status spesifikasi:** Baseline acuan visual dan sistem desain resmi untuk antarmuka pembacaan hadis, perbandingan hermeneutika, dan modul edukasi keluarga sakinah. Nilai warna dan dimensi selaras dengan implementasi CSS variables di `src/index.css`.
 
 ---
 
@@ -9,11 +10,11 @@
 
 ### 1.1 Nama dan karakter desain
 
-**Warm Islamic Heritage — Prayer & Mosque Companion**
+**Warm Islamic Heritage — Scholarly & Family Wisdom Companion**
 
-Antarmuka aplikasi pendamping ibadah dengan karakter **Islamic heritage, warm editorial, dan contemporary utility**. Identitasnya dibangun dari fotografi interior masjid, warna pasir dan gading, cokelat kayu gelap, aksen emas kusam, ornamen geometri Islam, serta ikon garis sederhana.
+Antarmuka platform studi hadis hukum keluarga Islam dengan karakter **Islamic heritage, warm editorial, dan contemporary utility**. Identitasnya dibangun dari tekstur warna pasir dan gading, cokelat kayu gelap, aksen emas kusam, tipografi Arab berharakat yang elegan, serta ikon garis sederhana.
 
-Desain bukan dashboard teknologi yang penuh panel. Nuansa utamanya lebih dekat pada ruang masjid yang tenang: hangat, khidmat, akrab, dan mudah dipahami. Elemen dekoratif menjadi penguat identitas, sementara informasi waktu salat dan akses fitur tetap menjadi fokus fungsional.
+Desain bukan dashboard teknologi yang penuh panel. Nuansa utamanya lebih dekat pada ruang perpustakaan studi Islam yang teduh: hangat, khidmat, akrab, dan mudah dipahami. Elemen estetika menjadi penguat identitas keagamaan yang moderat, sementara kenyamanan membaca teks Arab, sanad, dan komparasi makna tetap menjadi fokus fungsional utama.
 
 ### 1.2 Mood & tone
 
