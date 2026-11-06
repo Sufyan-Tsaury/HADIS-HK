@@ -208,18 +208,18 @@ export function App() {
             {/* Middle Column: Daftar Hadis */}
             <section
               aria-label="Daftar Riwayat Hadis"
-              className="lg:w-[300px] xl:w-[356px] shrink-0 h-dvh sticky top-0 overflow-y-auto border-r border-[#D9D0C4] bg-[#F7F3EF]/60 p-4 space-y-3"
+              className="lg:w-[320px] xl:w-[360px] shrink-0 h-dvh sticky top-0 overflow-y-auto border-r border-[#E5E7EB] bg-white p-4 space-y-3"
             >
-              <div className="flex items-center justify-between gap-2 pb-2 border-b border-[#D9D0C4]">
+              <div className="flex items-center justify-between gap-2 pb-2.5 border-b border-[#E5E7EB]">
                 <div className="min-w-0">
-                  <h1 className="text-sm font-bold font-display text-[#352719] truncate tracking-wide">
+                  <h1 className="text-sm font-bold font-sans text-[#111827] truncate tracking-tight">
                     {selectedStageId !== 'all'
                       ? STAGES.find((s) => s.id === selectedStageId)?.title
                       : selectedTag
-                      ? `Topik #${selectedTag}`
+                      ? `Topik: ${selectedTag}`
                       : 'Seluruh Riwayat Hadis'}
                   </h1>
-                  <p className="text-[11px] text-[#6B5B49]">
+                  <p className="text-[11px] text-[#6B7280]">
                     {filteredHadiths.length} hadis ditampilkan
                   </p>
                 </div>
@@ -228,7 +228,7 @@ export function App() {
                   <button
                     type="button"
                     onClick={handleResetFilters}
-                    className="min-h-[34px] px-2.5 py-1 rounded-lg bg-white border border-[#D9D0C4] text-[11px] font-semibold text-[#301A05] hover:border-[#B09768] flex items-center gap-1 shrink-0 shadow-xs"
+                    className="min-h-[34px] px-2.5 py-1 rounded-lg bg-[#F9F7F5] border border-[#E5E7EB] text-[11px] font-medium text-[#795A3F] hover:bg-white flex items-center gap-1 shrink-0 transition"
                   >
                     <RotateCcw className="w-3 h-3" />
                     <span>Reset</span>
@@ -237,15 +237,15 @@ export function App() {
               </div>
 
               {filteredHadiths.length === 0 ? (
-                <div className="rounded-xl border border-[#D9D0C4] bg-white p-6 text-center space-y-2.5 shadow-xs">
-                  <BookOpen className="w-6 h-6 text-[#8A8177] mx-auto" />
-                  <p className="text-xs font-semibold text-[#352719]">
+                <div className="rounded-xl border border-[#E5E7EB] bg-white p-6 text-center space-y-2.5">
+                  <BookOpen className="w-6 h-6 text-[#9CA3AF] mx-auto" />
+                  <p className="text-xs font-semibold text-[#111827]">
                     Tidak ada hadis yang cocok
                   </p>
                   <button
                     type="button"
                     onClick={handleResetFilters}
-                    className="btn-heritage-soft px-3 py-1.5 text-xs"
+                    className="min-h-[36px] px-3 py-1.5 rounded-lg border border-[#E5E7EB] text-xs font-medium text-[#795A3F] hover:bg-[#F9F7F5] transition"
                   >
                     Reset Filter
                   </button>

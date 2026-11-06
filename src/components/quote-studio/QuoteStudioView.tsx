@@ -387,7 +387,7 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
         )}
 
         {shareFeedback && (
-          <div className="p-3 rounded-xl bg-[#F7F3EF] border border-[#B09768] text-xs text-[#301A05] font-medium text-center">
+          <div className="p-3 rounded-xl bg-[#F9F7F5] border border-[#E5E7EB] text-xs text-[#111827] font-medium text-center">
             {shareFeedback}
           </div>
         )}
@@ -403,7 +403,7 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
             <div
               aria-hidden="true"
               className={`w-28 h-28 rounded-full absolute -top-8 -right-8 pointer-events-none ${
-                theme === 'ink' ? 'bg-white/5' : 'bg-[#C7B39C]/35'
+                theme === 'ink' ? 'bg-white/5' : 'bg-[#C6A17B]/20'
               }`}
             />
 
@@ -412,17 +412,17 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
               <span
                 className={`w-7 h-7 rounded-lg flex items-center justify-center text-[11px] font-bold ${
                   theme === 'ink'
-                    ? 'bg-[#B09768] text-[#220B02]'
-                    : 'bg-[#301A05] text-[#FFF9F5]'
+                    ? 'bg-[#C6A17B] text-[#111827]'
+                    : 'bg-[#795A3F] text-white'
                 }`}
               >
                 HK
               </span>
               <div className="leading-tight">
-                <span className="block text-xs font-bold font-display tracking-wide">Hadis HK</span>
+                <span className="block text-xs font-bold font-sans tracking-tight">Hadis HK</span>
                 <span
                   className={`block text-[9px] ${
-                    theme === 'ink' ? 'text-[#D9D0C4]' : 'text-[#6B5B49]'
+                    theme === 'ink' ? 'text-gray-400' : 'text-[#6B7280]'
                   }`}
                 >
                   Riset Hadis • Hukum Keluarga

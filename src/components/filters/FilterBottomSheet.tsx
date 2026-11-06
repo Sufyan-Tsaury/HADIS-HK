@@ -96,7 +96,7 @@ export const FilterBottomSheet: React.FC<FilterBottomSheetProps> = ({
     >
       {/* Drag Handle Visual Indicator */}
       <div className="pt-2.5 pb-1 flex justify-center sm:hidden">
-        <span className="w-10 h-1 rounded-full bg-[#D9D0C4]" />
+        <span className="w-10 h-1 rounded-full bg-[#E5E7EB]" />
       </div>
 
       {/* Header */}

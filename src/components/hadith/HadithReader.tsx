@@ -502,7 +502,7 @@ export const HadithReader: React.FC<HadithReaderProps> = ({
         <button
           type="button"
           onClick={() => onOpenQuote(hadith)}
-          className="btn-heritage-soft w-full min-h-[46px] px-4 text-xs flex items-center justify-center gap-2"
+          className="w-full min-h-[46px] px-4 rounded-xl border border-[#E5E7EB] bg-[#F9F7F5] hover:bg-[#F3EFEA] text-xs font-semibold text-[#111827] flex items-center justify-center gap-2 transition"
         >
           <Share2 className="w-4 h-4 text-[#795A3F]" />
           <span>Buat &amp; Unduh Kartu Kutipan Hadis Ini</span>
