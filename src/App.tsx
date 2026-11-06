@@ -16,21 +16,29 @@ import { LibraryPage } from './pages/LibraryPage';
 import { HadithDetailPage } from './pages/HadithDetailPage';
 import { SavedPage } from './pages/SavedPage';
 import { AboutProfilePage } from './pages/AboutProfilePage';
+import { WelcomePortalPage } from './pages/WelcomePortalPage';
 import { Bookmark, Share2, RotateCcw, BookOpen } from 'lucide-react';
 
-type ActiveRoute = 'library' | 'detail' | 'quote' | 'pillars' | 'quiz' | 'saved' | 'about';
+type ActiveRoute = 'welcome' | 'library' | 'detail' | 'quote' | 'pillars' | 'quiz' | 'saved' | 'about';
 
 const getInitialRoute = (): ActiveRoute => {
   if (typeof window !== 'undefined') {
     const hash = window.location.hash.replace('#/', '').replace('#', '');
-    if (['library', 'detail', 'quote', 'pillars', 'quiz', 'saved', 'about'].includes(hash)) {
+    if (['welcome', 'library', 'detail', 'quote', 'pillars', 'quiz', 'saved', 'about'].includes(hash)) {
       return hash as ActiveRoute;
     }
     if (hash === 'profil' || hash === 'profile') {
       return 'about';
     }
+    if (hash === 'beranda' || hash === 'home') {
+      return 'welcome';
+    }
+    // Default entry to welcome portal if no hash
+    if (!hash) {
+      return 'welcome';
+    }
   }
-  return 'library';
+  return 'welcome';
 };
 
 export function App() {
@@ -182,6 +190,24 @@ export function App() {
         }`
       : desktopDisplayedHadith.stageId;
 
+  if (route === 'welcome') {
+    return (
+      <WelcomePortalPage
+        onEnterLibrary={(stageId) => {
+          if (stageId) {
+            setSelectedStageId(stageId);
+            setSelectedTag(null);
+          } else {
+            setSelectedStageId('all');
+            setSelectedTag(null);
+          }
+          navigateTo('library');
+        }}
+        onOpenProfile={() => navigateTo('about')}
+      />
+    );
+  }
+
   return (
     <div className="min-h-dvh bg-white text-[#111827] flex flex-col lg:flex-row">
       {/* =================================================================
@@ -197,6 +223,7 @@ export function App() {
         savedCount={savedIds.length}
         activeDesktopView={desktopActiveMode}
         onOpenLibrary={() => setRoute('library')}
+        onOpenWelcome={() => navigateTo('welcome')}
         onOpenPillars={() => navigateTo('pillars')}
         onOpenQuiz={() => navigateTo('quiz')}
         onOpenSaved={() => navigateTo('saved')}
@@ -380,8 +407,8 @@ export function App() {
             {desktopActiveMode === 'about' && (
               <div className="flex-1 overflow-y-auto">
                 <AboutProfilePage
-                  onBack={() => setRoute('library')}
-                  onExploreHadith={() => setRoute('library')}
+                  onBack={() => navigateTo(previousRoute === 'welcome' ? 'welcome' : 'library')}
+                  onExploreHadith={() => navigateTo('library')}
                 />
               </div>
             )}
@@ -408,6 +435,7 @@ export function App() {
             onToggleSave={toggleSaveHadith}
             onOpenFilterSheet={() => setIsFilterSheetOpen(true)}
             onOpenSaved={() => navigateTo('saved')}
+            onOpenWelcome={() => navigateTo('welcome')}
           />
         )}
 
@@ -467,8 +495,8 @@ export function App() {
 
         {route === 'about' && (
           <AboutProfilePage
-            onBack={() => setRoute('library')}
-            onExploreHadith={() => setRoute('library')}
+            onBack={() => navigateTo(previousRoute === 'welcome' ? 'welcome' : 'library')}
+            onExploreHadith={() => navigateTo('library')}
           />
         )}
       </div>

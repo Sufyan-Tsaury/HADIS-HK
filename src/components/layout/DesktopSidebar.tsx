@@ -2,7 +2,7 @@ import React from 'react';
 import { STAGES, HADITHS_DATA } from '../../data/hadiths';
 import { StageIcon } from '../navigation/StageIcon';
 import { SHORT_STAGE_LABELS } from '../navigation/stageLabels';
-import { Search, X, BookOpen, HelpCircle, Bookmark, ChevronRight, GraduationCap } from 'lucide-react';
+import { Search, X, BookOpen, HelpCircle, Bookmark, ChevronRight, GraduationCap, Compass } from 'lucide-react';
 import { BrandLogoMark } from '../common/BrandLogo';
 
 interface DesktopSidebarProps {
@@ -15,6 +15,7 @@ interface DesktopSidebarProps {
   savedCount: number;
   activeDesktopView: 'library' | 'pillars' | 'quiz' | 'saved' | 'quote' | 'about';
   onOpenLibrary: () => void;
+  onOpenWelcome?: () => void;
   onOpenPillars: () => void;
   onOpenQuiz: () => void;
   onOpenSaved: () => void;
@@ -30,6 +31,7 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
   savedCount,
   activeDesktopView,
   onOpenLibrary,
+  onOpenWelcome,
   onOpenPillars,
   onOpenQuiz,
   onOpenSaved,
@@ -52,7 +54,8 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
         {/* Brand Identity */}
         <button
           type="button"
-          onClick={onOpenLibrary}
+          onClick={onOpenWelcome || onOpenLibrary}
+          title="Buka Beranda Utama"
           className="flex items-center gap-2.5 text-left w-full group"
         >
           <BrandLogoMark size={38} concept="sanctuary" />
@@ -65,6 +68,32 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
             </span>
           </div>
         </button>
+
+        {/* Dual Mode Switcher: Beranda & Pustaka */}
+        {onOpenWelcome && (
+          <div className="grid grid-cols-2 gap-1 p-1 bg-[#F9F7F5] rounded-xl border border-[#E5E7EB]">
+            <button
+              type="button"
+              onClick={onOpenWelcome}
+              className="px-2 py-1.5 text-xs font-semibold rounded-lg text-[#6B7280] hover:text-[#111827] hover:bg-white transition flex items-center justify-center gap-1.5"
+            >
+              <Compass className="w-3.5 h-3.5 text-[#795A3F]" />
+              <span>Beranda</span>
+            </button>
+            <button
+              type="button"
+              onClick={onOpenLibrary}
+              className={`px-2 py-1.5 text-xs font-semibold rounded-lg transition flex items-center justify-center gap-1.5 ${
+                activeDesktopView === 'library'
+                  ? 'bg-white text-[#795A3F] shadow-2xs font-bold'
+                  : 'text-[#6B7280] hover:text-[#111827] hover:bg-white'
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5 text-[#795A3F]" />
+              <span>Pustaka</span>
+            </button>
+          </div>
+        )}
 
         {/* Desktop Search Bar */}
         <div className="relative">

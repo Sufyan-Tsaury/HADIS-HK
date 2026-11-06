@@ -22,6 +22,7 @@ interface LibraryPageProps {
   onToggleSave: (id: string) => void;
   onOpenFilterSheet: () => void;
   onOpenSaved: () => void;
+  onOpenWelcome?: () => void;
 }
 
 export const LibraryPage: React.FC<LibraryPageProps> = ({
@@ -38,6 +39,7 @@ export const LibraryPage: React.FC<LibraryPageProps> = ({
   onToggleSave,
   onOpenFilterSheet,
   onOpenSaved,
+  onOpenWelcome,
 }) => {
   const isUnfilteredHome =
     selectedStageId === 'all' && selectedTag === null && searchQuery.trim() === '';
@@ -52,7 +54,7 @@ export const LibraryPage: React.FC<LibraryPageProps> = ({
         onSearchChange={onSearchChange}
         savedCount={savedIds.length}
         onOpenSaved={onOpenSaved}
-        onLogoClick={onResetFilters}
+        onLogoClick={onOpenWelcome || onResetFilters}
       />
 
       {/* Horizontal Chapter Strip */}
