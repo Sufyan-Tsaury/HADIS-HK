@@ -691,6 +691,97 @@ export const HADITHS_DATA: HadithItem[] = [
     tags: ['Istri Bekerja', 'Kemandirian Finansial', 'Pahala Sedekah', 'Kerjasama Pasutri'],
     quoteSnippet: 'Ketika seorang istri turut menopang perekonomian rumah tangga, ia bukan sekadar penolong, melainkan mitra mulia yang dianugerahi ganjaran cinta dan sedekah berlipat.'
   },
+  {
+    id: 'hadis-suapan-makanan-sedekah',
+    stageId: 'finansial',
+    theme: 'Nafkah Sebagai Ibadah & Apresiasi Domestik',
+    pertemuan: 8,
+    title: 'Suapan Nafkah Sebagai Sedekah: Nilai Ibadah Tertinggi dalam Memenuhi Kebutuhan Pasangan',
+    rawi: 'Sa\'ad bin Abi Waqqash ra',
+    kitab: 'Sahih al-Bukhari & Sahih Muslim',
+    kitabBab: 'Kitab an-Nafaqat, Bab Fadhl an-Nafaqah \'alal Ahli wal \'Iyal',
+    noHadis: 'Bukhari No. 56 & Muslim No. 1628',
+    sanadArab: 'حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، أَخْبَرَنَا مَالِكٌ، عَنِ ابْنِ شِهَابٍ، عَنْ عَامِرِ بْنِ سَعْدِ بْنِ أَبِي وَقَّاصٍ، عَنْ أَبِيهِ رَضِيَ اللَّهُ عَنْهُ، أَنَّ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:',
+    matnArab: '«وَإِنَّكَ لَنْ تُنْفِقَ نَفَقَةً تَبْتَغِي بِهَا وَجْهَ اللَّهِ إِلَّا أُجِرْتَ عَلَيْهَا، حَتَّى مَا تَجْعَلُ فِي فِي امْرَأَتِكَ»',
+    terjemahanSanad: 'Telah menceritakan kepada kami Abdullah bin Yusuf, telah mengabarkan kepada kami Malik, dari Ibnu Syihab (az-Zuhri), dari Amir bin Sa\'ad bin Abi Waqqash, dari ayahnya (Sa\'ad bin Abi Waqqash) رضي الله عنه, bahwa Rasulullah ﷺ bersabda:',
+    terjemahan: 'Dan sesungguhnya tidaklah engkau menafkahkan suatu nafkah yang engkau niatkan semata-mata mencari ridha Allah, melainkan engkau pasti diberi pahala atasnya, bahkan hingga suapan makanan yang engkau letakkan ke dalam mulut istrimu.',
+    perbandinganMazhab: {
+      hanafi: 'Mazhab Hanafi menegaskan nafkah adalah kewajiban yang bersifat mu\'awadhah (imbalan atas komitmen perkawinan), namun hadis ini mengangkat transaksi tersebut menjadi bernilai ibadah qurbah bila didasari niat tulus mencari keridhaan Allah.',
+      maliki: 'Mazhab Maliki memandang nafkah sebagai kewajiban qadha\'iyyah (hukum) sekaligus diyanah (spiritual). Pemenuhan kebutuhan sandang pangan keluarga diprioritaskan sebelum sedekah sunnah kepada pihak luar.',
+      syafii: 'Mazhab Syafi\'i menetapkan bahwa nafkah wajib diukur berdasarkan kemampuan suami (mu\'sir, mutawassith, musir) dan menjadi utang yang tidak gugur oleh berlalunya waktu. Riwayat ini menguatkan bahwa kewajiban hukum tersebut bernilai ganjaran ukhrawi tertinggi.',
+      hanbali: 'Mazhab Hanbali menekankan bahwa nafkah keluarga merupakan sedekah paling utama (afdhalus shadaqat), mengungguli infak jihad tatkala keluarga inti sedang membutuhkan sokongan nafkah.',
+      khiDanKonteks: 'KHI Pasal 80 ayat (4) mewajibkan suami menanggung nafkah, kiswah, dan tempat kediaman bagi istri. Dalam konteks Indonesia, hadis ini membongkar anggapan nafkah sebagai beban materiil belaka, mentransformasikannya menjadi wujud ibadah kemitraan yang penuh kasih sayang.'
+    },
+    pemaknaanKonvensional: {
+      ringkasan: 'Sering kali dipahami sebatas kewajiban searah di mana suami menafkahi istri untuk menuntut kepatuhan mutlak (tamkin), memandang suapan makanan sekadar kiasan paternalistik.',
+      poin: [
+        'Menempatkan nafkah sebagai alat kontrol sepihak atas ketaatan istri.',
+        'Mengabaikan dimensi emosional dan apresiasi timbal-balik dalam interaksi domestik.',
+        'Jarang ditarik hikmahnya bahwa kelelahan ekonomi rumah tangga adalah investasi amal bersama.'
+      ]
+    },
+    pemaknaanMubadalah: {
+      ringkasan: 'Menyuapkan makanan adalah lambang pemenuhan kebutuhan lahiriah yang dibalut kehangatan afeksi batiniah secara resiprokal. Harta yang dikeluarkan untuk kesejahteraan pasangan dan keluarga memiliki kedudukan spiritual tertinggi melampaui sedekah kepada orang lain.',
+      illatHukum: 'Pemenuhan hak primer keluarga yang diiringi ketulusan cinta dan pemuliaan martabat pasangan adalah inti ibadah muamalah.',
+      poinKesalingan: [
+        'Sebagaimana suami beroleh pahala atas nafkah yang ia curahkan, istri pun beroleh pahala serupa tatkala mengelola, merawat, dan menyokong rezeki keluarga.',
+        'Nafkah tidak boleh dijadikan instrumen arogansi atau menzalimi hak otonomi pasangan.',
+        'Keintiman psikologis ("menyuapkan makanan") harus menyertai pemenuhan nafkah fisik agar tidak menjadi transaksi kering.'
+      ],
+      aplikasiHariIni: [
+        'Jadikan nafkah sebagai wujud syukur dan cinta, bukan ajang perhitungan untung-rugi dalam rumah tangga.',
+        'Selipkan kehangatan komunikasi dan apresiasi di meja makan sebagai ruang dialog yang menenangkan hati pasangan.'
+      ]
+    },
+    pilarTerkait: ["Mu'asyarah bi al-Ma'ruf", 'Zawaj', 'Taradhin'],
+    tags: ['Nafkah', 'Finansial', 'Kasih Sayang', 'Sedekah Keluarga', 'Apresiasi Pasangan'],
+    quoteSnippet: 'Harta yang kau curahkan demi kesejahteraan pasanganmu bukanlah sekadar kewajiban materiil, melainkan sedekah yang paling mulia dan diridhai di sisi Allah.'
+  },
+  {
+    id: 'hadis-suami-mu-sir-bangkrut',
+    stageId: 'finansial',
+    theme: 'Krisis Ekonomi, Opsi Nafkah & Perlindungan Hak Istri',
+    pertemuan: 8,
+    title: 'Penyikapan Suami yang Tidak Mampu Menafkahi: Antara Kemitraan Sabar dan Opsi Fasakh Demi Kesejahteraan',
+    rawi: 'Abu Hurairah ra',
+    kitab: 'Sunan ad-Daruquthni & Sunan al-Baihaqi',
+    kitabBab: 'Kitab an-Nafaqat, Bab Nafaqat al-Mu\'sir wa Khiyar al-Mar\'ah',
+    noHadis: 'Ad-Daruquthni No. 3943 & Al-Baihaqi No. 15418',
+    sanadArab: 'حَدَّثَنَا أَبُو بَكْرٍ النَّيْسَابُورِيُّ، حَدَّثَنَا مُحَمَّدُ بْنُ يَحْيَى، حَدَّثَنَا سَعِيدُ بْنُ أَبِي مَرْيَمَ، أَنْبَأَنَا ابْنُ أَبِي الزِّنَادِ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ الْحَارِثِ، عَنْ عِكْرِمَةَ، عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ، أَنَّ النَّبِيَّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ فِي الرَّجُلِ لَا يَجِدُ مَا يُنْفِقُ عَلَى امْرَأَتِهِ:',
+    matnArab: '«قَالَ: يُفَرَّقُ بَيْنَهُمَا»',
+    terjemahanSanad: 'Telah menceritakan kepada kami Abu Bakr an-Naisaburi, telah menceritakan kepada kami Muhammad bin Yahya, telah menceritakan kepada kami Sa\'id bin Abi Maryam, telah memberitakan kepada kami Ibnu Abi az-Zinad, dari Abdurrahman bin al-Harits, dari Ikrimah, dari Abu Hurairah رضي الله عنه, bahwa Nabi ﷺ bersabda mengenai seorang laki-laki (suami) yang tidak memiliki sesuatu untuk dinafkahkan kepada istrinya:',
+    terjemahan: 'Beliau (Nabi ﷺ) bersabda: "Keduanya dipisahkan (diberi hak fasakh/perpisahan bila istri menuntutnya demi menolak bahaya penelantaran)."',
+    perbandinganMazhab: {
+      hanafi: 'Mazhab Hanafi berpendapat bahwa suami yang jatuh miskin (mu\'sir) tidak boleh langsung dipisahkan dari istrinya, melainkan istri diperintahkan untuk berutang atas nama suami dan suami menanggungnya kelak saat telah lapang.',
+      maliki: 'Mazhab Maliki memberikan masa tenggang (ajal) bagi suami yang mu\'sir (antara 1 hingga 2 bulan). Bila suami tetap tidak mampu memberikan nafkah pokok dan istri tidak rela, hakim memfasakh pernikahan demi menolak bahaya (dharar).',
+      syafii: 'Mazhab Syafi\'i secara tegas memberikan hak pilih (khiyar) kepada istri: jika ia memilih bersabar dan menyokong suaminya maka akad berlanjut, namun bila ia tidak mampu menanggung derita kelaparan, ia berhak memohon fasakh kepada hakim setelah masa penantian 3 hari.',
+      hanbali: 'Mazhab Hanbali sepakat dengan Syafi\'iyyah bahwa ketidakmampuan memberi nafkah pokok sandang pangan memberi hak bagi istri untuk fasakh, sebab kelangsungan hidup dan keselamatan jiwa diutamakan di atas kelanjutan akad.',
+      khiDanKonteks: 'KHI Pasal 116 huruf (g) mengakomodasi hadis ini secara bijak: suami yang melanggar sighat taklik-talak karena tidak memberi nafkah wajib lahir batin selama beberapa bulan dapat menjadi alasan perceraian di Pengadilan Agama jika istri tidak ridha.'
+    },
+    pemaknaanKonvensional: {
+      ringkasan: 'Sering disalahartikan seolah Islam meremehkan ikatan perkawinan dengan memutus cerai hanya karena kemiskinan, atau sebaliknya memaksa perempuan bertahan dalam kemelaratan ekstrem atas nama takdir.',
+      poin: [
+        'Menganggap kesabaran istri sebagai kewajiban mutlak tanpa batas waktu meski kelaparan.',
+        'Menafsirkan pemisahan (yufarraqu bainahuma) sebagai pemaksaan sepihak bukan sebagai perlindungan hak asasi perempuan.'
+      ]
+    },
+    pemaknaanMubadalah: {
+      ringkasan: 'Islam menyeimbangkan antara komitmen moral saling menyokong di masa sulit dengan perlindungan hak hidup. Jika istri memilih bersabar mendampingi suami yang bangkrut, hal itu adalah ihsan mulia; namun bila situasi mengancam keselamatan dan hak dasarnya, syariat menyediakan pintu keluar terhormat tanpa celaan.',
+      illatHukum: 'Menolak bahaya kelaparan/penelantaran (daf\'u adh-dharar) dan menjamin kelangsungan hidup yang layak bagi pasangan.',
+      poinKesalingan: [
+        'Perkawinan dibangun di atas kemitraan saling melindungi, bukan perbudakan yang mengorbankan kelangsungan hidup satu pihak.',
+        'Suami tidak boleh memaksakan kesabaran istrinya secara manipulatif tatkala ia abai atau gagal berikhtiar mencari rezeki.',
+        'Keterbukaan kondisi finansial sejak awal adalah wujud amanah agar musyawarah dapat mengambil langkah terbaik.'
+      ],
+      aplikasiHariIni: [
+        'Ketika keluarga mengalami krisis ekonomi, kedepankan dialog jujur, transparansi keuangan, dan pemetaan ikhtiar bersama.',
+        'Hargai kontribusi istri yang ikut bekerja menopang ekonomi keluarga sebagai pahlawan rumah tangga, bukan menuntut pelayanan sepihak.'
+      ]
+    },
+    pilarTerkait: ['Mitsaqan Ghalizhan', "Mu'asyarah bi al-Ma'ruf", 'Tasyawur'],
+    tags: ['Krisis Finansial', 'Hak Nafkah', 'Fasakh', 'Perlindungan Perempuan', 'Kemitraan Pasutri'],
+    quoteSnippet: 'Syariat memuliakan kesabaran istri dalam mendampingi ujian suami, namun syariat juga mengharamkan penelantaran ekonomi yang membahayakan kelangsungan hidupnya.'
+  },
 
   // ==========================================
   // KLASTER 5: KEINTIMAN & HAK REPRODUKSI
@@ -874,6 +965,142 @@ export const HADITHS_DATA: HadithItem[] = [
     pilarTerkait: ["Mu'asyarah bi al-Ma'ruf", 'Tasyawur', 'Zawaj'],
     tags: ['Akhlak Kenabian', 'Anti-Kekerasan', 'Keteladanan Rasul', 'Kedamaian Rumah'],
     quoteSnippet: 'Teladan Rasulullah ﷺ yang paling nyata di rumah adalah tidak pernah mengayunkan tangan untuk menyakiti perempuan atau siapa pun yang berada di dekatnya.'
+  },
+  {
+    id: 'hadis-aduan-istri-bukan-orang-terbaik',
+    stageId: 'konflik',
+    theme: 'Anti-KDRT & Gugurnya Klaim Lelaki Terbaik Bagi Pelaku Kekerasan',
+    pertemuan: 11,
+    title: 'Aduan Kekerasan Rumah Tangga: Teguran Keras Nabi Bahwa Pemukul Istri Bukanlah Orang yang Terbaik',
+    rawi: 'Iyas bin Abdillah bin Abi Dzubab ra',
+    kitab: 'Sunan Abi Dawud & Sunan Ibni Majah',
+    kitabBab: 'Kitab an-Nikah, Bab fi Dharbin Nisa\' (Bab Hukum Memukul Perempuan)',
+    noHadis: 'Abu Dawud No. 2146 & Ibnu Majah No. 1985',
+    sanadArab: 'حَدَّثَنَا مُحَمَّدُ بْنُ كَثِيرٍ، أَخْبَرَنَا سُفْيَانُ، عَنْ عَبْدِ اللَّهِ بْنِ حَسَنٍ، عَنْ إِيَاسِ بْنِ عَبْدِ اللَّهِ بْنِ أَبِي ذُبَابٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «لَا تَضْرِبُوا إِمَاءَ اللَّهِ»، فَجَاءَ عُمَرُ إِلَى رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: ذَئِرْنَ النِّسَاءُ عَلَى أَزْوَاجِهِنَّ، فَرَخَّصَ فِي ضَرْبِهِنَّ، فَأَطَافَ بِآلِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نِسَاءٌ كَثِيرٌ يَشْكُونَ أَزْوَاجَهُنَّ، فَقَالَ النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:',
+    matnArab: '«لَقَدْ طَافَ بِآلِ مُحَمَّدٍ نِسَاءٌ كَثِيرٌ يَشْكُونَ أَزْوَاجَهُنَّ، لَيْسَ أُولَئِكَ بِخِيَارِكُمْ»',
+    terjemahanSanad: 'Telah menceritakan kepada kami Muhammad bin Katsir, telah mengabarkan kepada kami Sufyan (ats-Tsauri), dari Abdullah bin Hasan, dari Iyas bin Abdillah bin Abi Dzubab رضي الله عنه, ia berkata: Rasulullah ﷺ bersabda: "Janganlah kalian memukul hamba-hamba perempuan Allah!" Lalu Umar datang mengadu kepada Rasulullah ﷺ: "Para istri menjadi berani membangkang terhadap suaminya," maka beliau memberi rukhshah (kelonggaran terbatas simbolis). Setelah itu, berbondong-bondonglah banyak perempuan mendatangi keluarga Rasulullah ﷺ mengadukan perlakuan kasar para suami mereka. Maka Nabi ﷺ bersabda dengan tegas:',
+    terjemahan: 'Sungguh, banyak perempuan telah mendatangi keluarga Muhammad untuk mengadukan perlakuan (kasar) para suami mereka. Mereka (para suami yang memukul istrinya itu) sama sekali bukanlah orang-orang yang terbaik di antara kalian!',
+    perbandinganMazhab: {
+      hanafi: 'Mazhab Hanafi membatasi bahwa pukulan ta\'dib hanyalah simbolik dan bersyarat ketat; bila pemukulan menimbulkan luka, lebam, atau patah tulang, suami dikenai hukum qishash/diyat dan istri berhak meminta pemisahan melalui hakim.',
+      maliki: 'Mazhab Maliki sangat protektif terhadap istri yang mengalami kekerasan (syiqaq). Kesaksian adanya pengaduan kekerasan fisik cukup menjadi dasar kuat bagi hakim untuk menceraikan (fasakh dharar) dan menjatuhkan sanksi ta\'zir kepada suami.',
+      syafii: 'Imam Syafi\'i dalam kitab Al-Umm menyatakan bahwa meninggalkan pukulan adalah sunnah mutlak yang lebih utama mengikuti teladan Nabi ﷺ. Suami yang memukul telah merusak predikat "khiyarukum" (orang terbaik).',
+      hanbali: 'Mazhab Hanbali menegaskan bahwa jika pemukulan melampaui batas kewajaran, suami menanggung ganti rugi fisik, dan kekerasan berulang memberikan hak mutlak bagi istri untuk fasakh peradilan.',
+      khiDanKonteks: 'Selaras dengan UU No. 23 Tahun 2004 tentang Penghapusan KDRT (PKDRT) dan KHI Pasal 116 huruf (d). Hadis ini menegaskan secara moral dan hukum bahwa kekerasan dalam rumah tangga tidak memiliki tempat dalam standar keimanan seorang Muslim.'
+    },
+    pemaknaanKonvensional: {
+      ringkasan: 'Sering disempitkan hanya membaca riwayat rukhshah di tengah hadis untuk melegitimasi pemukulan istri, sementara mengabaikan pernyataan vonis Nabi ﷺ di akhir hadis yang mencabut predikat orang beriman terbaik dari pelaku pemukulan.',
+      poin: [
+        'Menjadikan ayat pemukulan sebagai dalil kuasa fisik laki-laki atas perempuan.',
+        'Mengabaikan konteks sejarah sosiologis masyarakat patriarkis Arab saat itu.',
+        'Mengaburkan teguran murka Nabi ﷺ atas pengaduan massal perempuan Madinah.'
+      ]
+    },
+    pemaknaanMubadalah: {
+      ringkasan: 'Hadis ini memperlihatkan dinamika progresif menuju penghapusan kekerasan: Nabi ﷺ mengawali dengan larangan mutlak («Lā tadhribū imā’allāh»), dan menutupnya dengan vonis moral tegas («Laisa ulā’ika bi-khiyārikum»). Standar martabat seorang suami diukur dari ketiadaan kekerasan dalam sikapnya.',
+      illatHukum: 'Pemuliaan martabat manusia (karamah insaniyyah) dan penghapusan segala bentuk intimidasi fisik maupun verbal dalam ikatan pernikahan.',
+      poinKesalingan: [
+        'Kediaman Nabi ﷺ menjadi safe house (ruang aman pengaduan) pertama bagi para korban kekerasan rumah tangga.',
+        'Kekuatan fisik tidak boleh dijadikan alat menyelesaikan friksi komunikasi antar-pasangan.',
+        'Laki-laki yang paling mulia adalah yang paling lembut, beradab, dan menahan diri dari menyakiti pasangannya.'
+      ],
+      aplikasiHariIni: [
+        'Tolak segala bentuk justifikasi KDRT atas nama agama; kekerasan fisik dan verbal adalah tindak pidana dan dosa besar.',
+        'Bila terjadi perselisihan, gunakan komunikasi asertif, konseling pernikahan, atau mediasi profesional, bukan agresi fisik.'
+      ]
+    },
+    pilarTerkait: ["Mu'asyarah bi al-Ma'ruf", 'Mitsaqan Ghalizhan', 'Taradhin'],
+    tags: ['Anti-KDRT', 'Manajemen Konflik', 'Perlindungan Perempuan', 'Akhlak Nabi', 'Safe House'],
+    quoteSnippet: 'Para suami yang memukul istrinya sama sekali bukanlah orang yang terbaik di antara kalian; kemuliaan iman seorang pria diukur dari kelembutannya terhadap pasangan.'
+  },
+  {
+    id: 'hadis-menahan-amarah-kekuatan-sejati',
+    stageId: 'konflik',
+    theme: 'Regulasi Emosi & Resolusi Sengketa Rumah Tangga',
+    pertemuan: 11,
+    title: 'Kekuatan Sejati dalam Mengelola Konflik: Menahan Amarah dan Menolak Eskalasi Kekerasan',
+    rawi: 'Abu Hurairah ra',
+    kitab: 'Sahih al-Bukhari & Sahih Muslim',
+    kitabBab: 'Kitab al-Adab, Bab al-Hadzar min al-Ghadhab (Bab Waspada Terhadap Amarah)',
+    noHadis: 'Bukhari No. 6114 & Muslim No. 2609',
+    sanadArab: 'حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، أَخْبَرَنَا مَالِكٌ، عَنِ ابْنِ شِهَابٍ، عَنْ حُمَيْدِ بْنِ عَبْدِ الرَّحْمَنِ، عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ، أَنَّ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:',
+    matnArab: '«لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ»',
+    terjemahanSanad: 'Telah menceritakan kepada kami Abdullah bin Yusuf, telah mengabarkan kepada kami Malik, dari Ibnu Syihab (az-Zuhri), dari Humaid bin Abdirrahman, dari Abu Hurairah رضي الله عنه, bahwa Rasulullah ﷺ bersabda:',
+    terjemahan: 'Orang yang kuat itu bukanlah orang yang jago bergulat (menang dalam adu fisik), melainkan orang yang kuat adalah orang yang mampu mengendalikan dirinya tatkala amarah sedang memuncak.',
+    perbandinganMazhab: {
+      hanafi: 'Mazhab Hanafi menerapkan prinsip hadis ini dalam hukum talak: ucapan talak atau tindakan yang diucapkan saat amarah hilang kendali (madh-hur / ighlaq) tidak jatuh demi menjaga keutuhan ikatan suci pernikahan.',
+      maliki: 'Mazhab Maliki menilai pengendalian diri sebagai rukun keluhuran moral dalam kepemimpinan rumah tangga. Suami yang emosional dan bertindak kasar kehilangan kelayakan memimpin dan dapat digugat cerai.',
+      syafii: 'Mazhab Syafi\'i menekankan bahwa emosi kemarahan adalah celah setan yang merusak musyawarah (tasyawur). Menahan amarah adalah prasyarat tercapainya pergaulan yang makruf (mu\'asyarah bil ma\'ruf).',
+      hanbali: 'Mazhab Hanbali sejalan dengan hadis ini bahwa kekuatan sejati terletak pada daya tahan menahan diri dari membanting, memukul, atau mengeluarkan kata-kata keji kepada pasangan.',
+      khiDanKonteks: 'KHI Pasal 77 ayat (2) menggariskan suami-istri memikul kewajiban luhur menegakkan rumah tangga sakinah. Dalam konteks pencegahan sengketa pasutri, kecerdasan emosional dan pengekangan amarah adalah kunci utama mencegah perceraian.'
+    },
+    pemaknaanKonvensional: {
+      ringkasan: 'Sering diajarkan sebatas nasihat akhlak umum di mimbar tanpa dihubungkan secara kontekstual dengan relasi kuasa dan letupan emosi dalam bilik rumah tangga.',
+      poin: [
+        'Jarang dikaitkan dengan fenomena KDRT yang berakar dari kegagalan suami mengontrol amarah.',
+        'Menilai maskulinitas dari dominasi dan ketakutan pasangan atas kemarahannya.'
+      ]
+    },
+    pemaknaanMubadalah: {
+      ringkasan: 'Hadis ini mendefinisikan ulang makna maskulinitas dan kekuatan sejati: kejantanan bukan diukur dari siapa yang bersuara paling keras atau sanggup memukul lawan, melainkan siapa yang mampu menjinakkan egonya sendiri demi melindungi pasangannya dari marabahaya emosinya.',
+      illatHukum: 'Mencegah kehancuran relasi dan melindungi keselamatan jiwa serta martabat sesama pasangan dari agresi amarah.',
+      poinKesalingan: [
+        'Prinsip menahan amarah berlaku simetris bagi suami dan istri tatkala terjadi silang pendapat.',
+        'Kekuatan sejati diuji saat pasangan sedang berselisih: memilih mendengarkan daripada menyerang.',
+        'Kedewasaan perkawinan ditandai dengan kemampuan memutus siklus bentakan dan kata-kata menyakitkan.'
+      ],
+      aplikasiHariIni: [
+        'Terapkan aturan jeda (time-out) 20–30 menit ketika tensi pertengkaran meningkat untuk menenangkan sistem saraf sebelum kembali berdialog.',
+        'Ubah nada komunikasi dari saling menyalahkan (you-statement) menjadi ungkapan perasaan yang jujur dan asertif (I-statement).'
+      ]
+    },
+    pilarTerkait: ["Mu'asyarah bi al-Ma'ruf", 'Tasyawur', 'Mitsaqan Ghalizhan'],
+    tags: ['Manajemen Amarah', 'Kecerdasan Emosional', 'Resolusi Konflik', 'Anti-Kekerasan', 'Komunikasi Pasutri'],
+    quoteSnippet: 'Kekuatan sejati seorang pria bukanlah pada kemampuannya menundukkan pasangan dengan amarah, melainkan pada kebesarannya menundukkan egonya sendiri.'
+  },
+  {
+    id: 'hadis-memaafkan-pasangan-tujuh-puluh-kali',
+    stageId: 'konflik',
+    theme: 'Pemaafan Berkelanjutan & Pemulihan Kehangatan Relasi',
+    pertemuan: 11,
+    title: 'Pemaafan Tanpa Batas: Meneladani Karakter Nabi dalam Memaafkan Kekhilafan Domestik Berulang Kali',
+    rawi: 'Abdullah bin Umar ra',
+    kitab: 'Sunan Abi Dawud & Sunan at-Tirmidzi',
+    kitabBab: 'Kitab al-Adab, Bab fi al-\'Afwi \'an al-Khadim (Bab Anjuran Memaafkan Pembantu & Orang Rumah)',
+    noHadis: 'Abu Dawud No. 5164 & Tirmidzi No. 1949',
+    sanadArab: 'حَدَّثَنَا مُسَدَّدٌ، حَدَّثَنَا يَحْيَى، عَنْ عُثْمَانَ بْنِ غِيَاثٍ، حَدَّثَنَا عَبْدُ اللَّهِ بْنُ عُمَرَ قَالَ: جَاءَ رَجُلٌ إِلَى النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: يَا رَسُولَ اللَّهِ، كَمْ نَعْفُو عَنِ الْخَادِمِ؟ فَصَمَتَ، ثُمَّ أَعَادَ عَلَيْهِ الْكَلَامَ فَصَمَتَ، فَلَمَّا كَانَ فِي الثَّالِثَةِ قَالَ:',
+    matnArab: '«اعْفُ عَنْهُ فِي كُلِّ يَوْمٍ سَبْعِينَ مَرَّةً»',
+    terjemahanSanad: 'Telah menceritakan kepada kami Musaddad, telah menceritakan kepada kami Yahya (al-Qatthan), dari Utsman bin Ghiyats, telah menceritakan kepada kami Abdullah bin Umar رضي الله عنهما, ia berkata: Datang seorang laki-laki kepada Nabi ﷺ seraya bertanya: "Wahai Rasulullah, berapa kali kami harus memaafkan pelayan/orang yang membantu kami?" Beliau terdiam. Orang itu mengulangi pertanyaannya, dan beliau tetap terdiam. Ketika ia bertanya untuk ketiga kalinya, beliau ﷺ bersabda:',
+    terjemahan: 'Maafkanlah kekhilafannya pada setiap hari sebanyak tujuh puluh kali!',
+    perbandinganMazhab: {
+      hanafi: 'Mazhab Hanafi menggarisbawahi bahwa angka 70 bukanlah batasan matematis harfiah, melainkan ungkapan hiperbola bahasa Arab (mubalaghah) untuk menunjukkan kelapangan hati yang tiada batas dalam pergaulan sehari-hari.',
+      maliki: 'Mazhab Maliki menilai pemaafan dan mengabaikan kesalahan kecil (at-taghaful) sebagai salah satu pilar keselamatan rumah tangga. Mencatat setiap kesalahan kecil pasangan adalah aib moral.',
+      syafii: 'Mazhab Syafi\'i menetapkan bahwa jika terhadap pekerja domestik saja dianjurkan memaafkan 70 kali sehari, maka terhadap pasangan hidup—yang terikat janji agung mitsaqan ghalizhan—keutamaan memaafkan jauh lebih berlipat ganda.',
+      hanbali: 'Mazhab Hanbali menekankan pemaafan sebagai penolak permusuhan menahun. Nabi ﷺ mendidik umatnya untuk tidak cepat menaruh dendam atas kekeliruan manusiawi di dalam rumah.',
+      khiDanKonteks: 'KHI Pasal 77 ayat (1) menegaskan suami istri wajib saling mencintai, menghormati, setia, dan memberi bantuan lahir batin. Sikap pemaaf dan lapang dada adalah benteng utama pencegah keretakan rumah tangga yang berujung ke pengadilan.'
+    },
+    pemaknaanKonvensional: {
+      ringkasan: 'Sering dipahami sempit hanya berlaku bagi budak/pembantu masa lampau, tidak ditarik relevansinya sebagai prinsip dasar komunikasi interpersonal antar-pasangan.',
+      poin: [
+        'Menafsirkan teks secara kaku dan terfragmentasi.',
+        'Membiarkan suami merasa berhak menghukum dan mendendam saat istri berbuat salah kecil.'
+      ]
+    },
+    pemaknaanMubadalah: {
+      ringkasan: 'Dengan metode qiyas al-aula (analogi prioritas): jika orang luar dan pekerja rumah tangga saja wajib dimaafkan hingga 70 kali dalam sehari, betapa lebih utamanya lagi pemaafan itu dicurahkan kepada pasangan hidup yang menjadi belahan jiwa dan teman berbagi kehidupan.',
+      illatHukum: 'Menumbuhkan budaya welas asih (rahmah), menghapus bibit dendam, dan memberi ruang bagi pasangan untuk memperbaiki diri secara terhormat.',
+      poinKesalingan: [
+        'Kesalahan manusiawi adalah keniscayaan dalam keseharian rumah tangga; keduanya harus saling memberi ampunan.',
+        'Memaafkan bukan berarti membiarkan kezaliman, melainkan tidak menyimpan kepahitan dan memberi kesempatan bertumbuh bersama.',
+        'Suami maupun istri sama-sama berkewajiban meredakan ego untuk meminta maaf dan memberi maaf.'
+      ],
+      aplikasiHariIni: [
+        'Terapkan seni taghaful (pura-pura tidak melihat kekhilafan kecil pasangan yang tidak melanggar syariat), seperti lupa menaruh barang atau masakan kurang pas.',
+        'Jangan tidur dalam keadaan memendam amarah; selesaikan hari dengan saling berjabat tangan dan mengikhlaskan kekhilafan.'
+      ]
+    },
+    pilarTerkait: ["Mu'asyarah bi al-Ma'ruf", 'Zawaj', 'Taradhin'],
+    tags: ['Pemaafan', 'Kelapangan Hati', 'Manajemen Konflik', 'Taghaful', 'Keharmonisan Keluarga'],
+    quoteSnippet: 'Jika kepada orang lain kita dianjurkan memaafkan tujuh puluh kali sehari, betapa lebih luasnya lagi pintu maaf yang selayaknya kita hamparkan bagi pasangan hidup tercinta.'
   },
 
   // ==========================================
