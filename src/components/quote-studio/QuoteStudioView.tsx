@@ -344,7 +344,7 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
     hadith.terjemahan.length <= 190 ? hadith.terjemahan : hadith.quoteSnippet;
 
   return (
-    <div className="min-h-dvh lg:min-h-0 bg-[#FDF9F5] flex flex-col pb-24 lg:pb-8">
+    <div className="min-h-dvh lg:min-h-0 bg-white text-[#111827] flex flex-col pb-24 lg:pb-8">
       <SubpageHeader title="Kartu Kutipan" onBack={onBack} />
 
       <div className="max-w-xl w-full mx-auto px-4 pt-4 space-y-5 flex-1">
@@ -352,15 +352,15 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
         <div
           role="group"
           aria-label="Pilih Rasio Gambar"
-          className="bg-[#F7F3EF] p-1 rounded-full grid grid-cols-2 border border-[#D9D0C4]"
+          className="bg-[#F9F7F5] p-1 rounded-lg grid grid-cols-2 border border-[#E5E7EB]"
         >
           <button
             type="button"
             onClick={() => setAspect('story')}
-            className={`min-h-[42px] rounded-full text-xs font-semibold transition ${
+            className={`min-h-[40px] rounded-md text-xs font-medium transition ${
               aspect === 'story'
-                ? 'bg-[#301A05] text-[#FFF9F5] shadow-xs'
-                : 'text-[#6B5B49] hover:text-[#352719]'
+                ? 'bg-[#795A3F] text-white shadow-xs'
+                : 'text-[#6B7280] hover:text-[#111827]'
             }`}
           >
             Story 9:16
@@ -368,10 +368,10 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
           <button
             type="button"
             onClick={() => setAspect('square')}
-            className={`min-h-[42px] rounded-full text-xs font-semibold transition ${
+            className={`min-h-[40px] rounded-md text-xs font-medium transition ${
               aspect === 'square'
-                ? 'bg-[#301A05] text-[#FFF9F5] shadow-xs'
-                : 'text-[#6B5B49] hover:text-[#352719]'
+                ? 'bg-[#795A3F] text-white shadow-xs'
+                : 'text-[#6B7280] hover:text-[#111827]'
             }`}
           >
             Post 1:1
@@ -512,21 +512,21 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
 
         {/* 3. Theme Thumbnail Selector */}
         <div className="space-y-2">
-          <span className="block text-xs font-bold uppercase tracking-wider text-[#352719]">Tema Tampilan:</span>
+          <span className="block text-xs font-semibold uppercase tracking-wider text-[#111827]">Tema Tampilan:</span>
           <div className="grid grid-cols-3 gap-2.5">
             <button
               type="button"
               onClick={() => setTheme('academic-light')}
-              className={`min-h-[68px] p-2 rounded-xl border-2 flex flex-col items-center justify-between bg-white transition ${
+              className={`min-h-[68px] p-2 rounded-xl border flex flex-col items-center justify-between bg-white transition ${
                 theme === 'academic-light'
-                  ? 'border-[#301A05] ring-2 ring-[#B09768]/40 shadow-xs'
-                  : 'border-[#D9D0C4] hover:border-[#B09768]'
+                  ? 'border-[#795A3F] ring-1 ring-[#795A3F]'
+                  : 'border-[#E5E7EB] hover:border-gray-300'
               }`}
             >
-              <span className="w-full h-7 rounded bg-white border border-[#D9D0C4] flex items-center justify-center text-[10px] font-bold text-[#301A05]">
+              <span className="w-full h-7 rounded bg-white border border-[#E5E7EB] flex items-center justify-center text-[10px] font-bold text-[#111827]">
                 Aa
               </span>
-              <span className="text-[11px] font-semibold text-[#352719] mt-1">
+              <span className="text-[11px] font-medium text-[#111827] mt-1">
                 Putih Bersih
               </span>
             </button>
@@ -534,16 +534,16 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
             <button
               type="button"
               onClick={() => setTheme('manuscript')}
-              className={`min-h-[68px] p-2 rounded-xl border-2 flex flex-col items-center justify-between bg-[#F8F3EC] transition ${
+              className={`min-h-[68px] p-2 rounded-xl border flex flex-col items-center justify-between bg-[#F9F7F5] transition ${
                 theme === 'manuscript'
-                  ? 'border-[#301A05] ring-2 ring-[#B09768]/40 shadow-xs'
-                  : 'border-[#D9D0C4] hover:border-[#B09768]'
+                  ? 'border-[#795A3F] ring-1 ring-[#795A3F]'
+                  : 'border-[#E5E7EB] hover:border-gray-300'
               }`}
             >
-              <span className="w-full h-7 rounded bg-[#F8F3EC] border border-[#C7B39C] flex items-center justify-center text-[10px] font-bold text-[#4C2605]">
+              <span className="w-full h-7 rounded bg-[#F9F7F5] border border-[#E5E7EB] flex items-center justify-center text-[10px] font-bold text-[#795A3F]">
                 Aa
               </span>
-              <span className="text-[11px] font-semibold text-[#352719] mt-1">
+              <span className="text-[11px] font-medium text-[#111827] mt-1">
                 Kertas Naskah
               </span>
             </button>
@@ -551,16 +551,16 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
             <button
               type="button"
               onClick={() => setTheme('ink')}
-              className={`min-h-[68px] p-2 rounded-xl border-2 flex flex-col items-center justify-between bg-[#220B02] text-[#FFF9F5] transition ${
+              className={`min-h-[68px] p-2 rounded-xl border flex flex-col items-center justify-between bg-[#111827] text-white transition ${
                 theme === 'ink'
-                  ? 'border-[#B09768] ring-2 ring-[#B09768]/40 shadow-xs'
-                  : 'border-[#6B5133] hover:border-[#B09768]'
+                  ? 'border-[#C6A17B] ring-1 ring-[#C6A17B]'
+                  : 'border-[#374151] hover:border-[#6B7280]'
               }`}
             >
-              <span className="w-full h-7 rounded bg-[#1A0802] border border-[#6B5133] flex items-center justify-center text-[10px] font-bold text-[#B09768]">
+              <span className="w-full h-7 rounded bg-[#1F2937] border border-[#374151] flex items-center justify-center text-[10px] font-bold text-[#C6A17B]">
                 Aa
               </span>
-              <span className="text-[11px] font-semibold text-[#FFF9F5] mt-1">
+              <span className="text-[11px] font-medium text-white mt-1">
                 Tinta Gelap
               </span>
             </button>
@@ -573,8 +573,8 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
             type="button"
             onClick={handleDownload}
             disabled={isExporting}
-            className={`w-full min-h-[48px] px-4 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition ${
-              downloadSuccess ? 'bg-emerald-700 text-white' : 'btn-heritage-primary shadow-sm'
+            className={`w-full min-h-[48px] px-4 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition ${
+              downloadSuccess ? 'bg-emerald-700 text-white' : 'bg-[#795A3F] text-white hover:bg-[#674A32]'
             }`}
           >
             {downloadSuccess ? (
@@ -594,16 +594,16 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
             <button
               type="button"
               onClick={handleShare}
-              className="btn-heritage-outline min-h-[46px] px-3 text-xs font-semibold flex items-center justify-center gap-2"
+              className="min-h-[44px] px-3 rounded-lg border border-[#E5E7EB] bg-white text-[#374151] hover:bg-gray-50 text-xs font-medium flex items-center justify-center gap-2 transition"
             >
-              <Share2 className="w-4 h-4 text-[#301A05]" />
+              <Share2 className="w-4 h-4 text-[#795A3F]" />
               <span>Bagikan</span>
             </button>
 
             <button
               type="button"
               onClick={handleCopyText}
-              className="btn-heritage-outline min-h-[46px] px-3 text-xs font-semibold flex items-center justify-center gap-2"
+              className="min-h-[44px] px-3 rounded-lg border border-[#E5E7EB] bg-white text-[#374151] hover:bg-gray-50 text-xs font-medium flex items-center justify-center gap-2 transition"
             >
               {copied ? (
                 <>
@@ -612,7 +612,7 @@ export const QuoteStudioView: React.FC<QuoteStudioViewProps> = ({ hadith, onBack
                 </>
               ) : (
                 <>
-                  <Copy className="w-4 h-4 text-[#301A05]" />
+                  <Copy className="w-4 h-4 text-[#795A3F]" />
                   <span>Salin Teks</span>
                 </>
               )}

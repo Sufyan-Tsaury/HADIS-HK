@@ -91,17 +91,17 @@ export const SubpageHeader: React.FC<SubpageHeaderProps> = ({
   rightAction,
 }) => {
   return (
-    <header className="sticky top-0 z-20 bg-[#FDF9F5]/95 backdrop-blur-sm border-b border-[#D9D0C4] px-4 py-2.5 flex items-center justify-between gap-3">
+    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b border-[#E5E7EB] px-4 py-2.5 flex items-center justify-between gap-3">
       <div className="flex items-center gap-2 min-w-0">
         <button
           type="button"
           onClick={onBack}
           aria-label="Kembali ke halaman sebelumnya"
-          className="min-w-[44px] min-h-[44px] -ml-2 rounded-xl flex items-center justify-center text-[#352719] hover:bg-[#F7F3EF] transition"
+          className="min-w-[44px] min-h-[44px] -ml-2 rounded-lg flex items-center justify-center text-[#111827] hover:bg-gray-100 transition"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
-        <h1 className="text-base font-bold text-[#352719] truncate font-display tracking-wide">
+        <h1 className="text-base font-bold text-[#111827] truncate font-sans tracking-tight">
           {title}
         </h1>
       </div>

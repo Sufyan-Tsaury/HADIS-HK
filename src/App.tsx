@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { HADITHS_DATA, STAGES } from './data/hadiths';
 import type { HadithItem } from './data/hadiths';
 import { DesktopSidebar } from './components/layout/DesktopSidebar';
@@ -19,8 +19,18 @@ import { Bookmark, Share2, RotateCcw, BookOpen } from 'lucide-react';
 
 type ActiveRoute = 'library' | 'detail' | 'quote' | 'pillars' | 'quiz' | 'saved';
 
+const getInitialRoute = (): ActiveRoute => {
+  if (typeof window !== 'undefined') {
+    const hash = window.location.hash.replace('#/', '').replace('#', '');
+    if (['library', 'detail', 'quote', 'pillars', 'quiz', 'saved'].includes(hash)) {
+      return hash as ActiveRoute;
+    }
+  }
+  return 'library';
+};
+
 export function App() {
-  const [route, setRoute] = useState<ActiveRoute>('library');
+  const [route, setRoute] = useState<ActiveRoute>(getInitialRoute);
   const [previousRoute, setPreviousRoute] = useState<ActiveRoute>('library');
 
   const [selectedStageId, setSelectedStageId] = useState<string>('all');
@@ -97,9 +107,25 @@ export function App() {
     return filteredHadiths[0] || activeHadith;
   }, [filteredHadiths, activeHadith]);
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#/', '').replace('#', '');
+      if (['library', 'detail', 'quote', 'pillars', 'quiz', 'saved'].includes(hash)) {
+        setRoute(hash as ActiveRoute);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const navigateTo = (nextRoute: ActiveRoute) => {
     setPreviousRoute(route);
     setRoute(nextRoute);
+    try {
+      window.location.hash = nextRoute;
+    } catch (e) {
+      console.error(e);
+    }
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   };
 
@@ -153,7 +179,7 @@ export function App() {
       : desktopDisplayedHadith.stageId;
 
   return (
-    <div className="min-h-dvh bg-[#FDF9F5] text-[#352719] flex flex-col lg:flex-row">
+    <div className="min-h-dvh bg-white text-[#111827] flex flex-col lg:flex-row">
       {/* =================================================================
           1. DESKTOP LEFT SIDEBAR (>= 1024px)
       ================================================================= */}
@@ -245,13 +271,13 @@ export function App() {
             </section>
 
             {/* Right Column: Area Pembacaan Utama */}
-            <main className="flex-1 min-w-0 bg-[#FDF9F5] overflow-y-auto">
+            <main className="flex-1 min-w-0 bg-white overflow-y-auto">
               {/* Top Breadcrumb Bar */}
-              <div className="sticky top-0 z-10 bg-[#FDF9F5]/95 backdrop-blur-xs border-b border-[#D9D0C4] px-6 xl:px-8 h-14 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-xs text-[#6B5B49] font-medium truncate">
-                  <span className="text-[#301A05] font-bold font-display tracking-wide">{desktopStageShort}</span>
+              <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-xs border-b border-[#E5E7EB] px-6 xl:px-8 h-14 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-2 text-xs text-[#6B7280] font-medium truncate font-sans">
+                  <span className="text-[#111827] font-semibold">{desktopStageShort}</span>
                   <span aria-hidden="true">›</span>
-                  <span className="text-[#352719] font-semibold">
+                  <span className="text-[#4B5563] font-semibold">
                     #{desktopCanonicalIdx}
                   </span>
                 </div>
@@ -265,13 +291,13 @@ export function App() {
                         ? 'Hapus dari tersimpan'
                         : 'Simpan hadis'
                     }
-                    className="min-w-[40px] min-h-[40px] rounded-xl border border-[#D9D0C4] bg-white hover:border-[#B09768] flex items-center justify-center text-[#352719] transition shadow-xs"
+                    className="min-w-[40px] min-h-[40px] rounded-lg border border-[#E5E7EB] bg-white hover:bg-gray-50 flex items-center justify-center text-[#111827] transition"
                   >
                     <Bookmark
                       className={`w-4 h-4 ${
                         savedIds.includes(desktopDisplayedHadith.id)
-                          ? 'text-[#301A05] fill-[#301A05]'
-                          : ''
+                          ? 'text-[#795A3F] fill-[#795A3F]'
+                          : 'text-[#6B7280]'
                       }`}
                     />
                   </button>
@@ -279,9 +305,9 @@ export function App() {
                   <button
                     type="button"
                     onClick={() => handleOpenQuoteStudio(desktopDisplayedHadith)}
-                    className="btn-heritage-soft min-h-[40px] px-3.5 text-xs flex items-center gap-1.5"
+                    className="min-h-[40px] px-3.5 text-xs font-medium rounded-lg border border-[#E5E7EB] text-[#374151] hover:bg-gray-50 flex items-center gap-1.5 transition"
                   >
-                    <Share2 className="w-3.5 h-3.5" />
+                    <Share2 className="w-3.5 h-3.5 text-[#795A3F]" />
                     <span>Kartu Kutipan</span>
                   </button>
                 </div>
@@ -302,7 +328,7 @@ export function App() {
           </>
         ) : (
           /* Desktop Secondary Pages (Pillars, Quiz, Saved, Quote Studio) */
-          <main className="flex-1 min-w-0 bg-[#FDF9F5]">
+          <main className="flex-1 min-w-0 bg-white">
             {desktopActiveMode === 'pillars' && (
               <FivePillarsView
                 onBack={() => setRoute('library')}

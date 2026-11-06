@@ -143,7 +143,7 @@ export const RelationQuizView: React.FC<RelationQuizViewProps> = ({
   const progressPercent = ((stepIdx + 1) / QUIZ_QUESTIONS.length) * 100;
 
   return (
-    <div className="min-h-dvh lg:min-h-0 bg-[#FDF9F5] flex flex-col pb-24 lg:pb-8">
+    <div className="min-h-dvh lg:min-h-0 bg-white text-[#111827] flex flex-col pb-24 lg:pb-8">
       <SubpageHeader
         title="Kuis Evaluasi Relasi"
         onBack={onBack}
@@ -151,7 +151,7 @@ export const RelationQuizView: React.FC<RelationQuizViewProps> = ({
           <button
             type="button"
             onClick={onOpenPillars}
-            className="min-h-[38px] px-2.5 py-1 rounded-lg bg-[#F7F3EF] border border-[#D9D0C4] text-[#301A05] text-xs font-semibold hover:bg-white transition"
+            className="min-h-[38px] px-3 py-1.5 rounded-lg border border-[#E5E7EB] bg-white text-[#374151] text-xs font-medium hover:bg-gray-50 transition"
           >
             5 Pilar
           </button>
@@ -162,24 +162,24 @@ export const RelationQuizView: React.FC<RelationQuizViewProps> = ({
         {!isCompleted ? (
           <>
             <div className="space-y-5">
-              {/* Warm Heritage Progress Pill Bar */}
+              {/* Clean Progress Pill Bar */}
               <div className="space-y-2">
-                <div className="h-9 rounded-full bg-[#F7F3EF] border border-[#D9D0C4] relative overflow-hidden flex items-center justify-center">
+                <div className="h-8 rounded-full bg-[#F9F7F5] border border-[#E5E7EB] relative overflow-hidden flex items-center justify-center">
                   <div
-                    className="absolute inset-y-0 left-0 bg-[#C7B39C] transition-all duration-300"
+                    className="absolute inset-y-0 left-0 bg-[#C6A17B] transition-all duration-300"
                     style={{ width: `${progressPercent}%` }}
                   />
-                  <span className="relative z-10 text-xs font-bold text-[#301A05]">
+                  <span className="relative z-10 text-xs font-semibold text-[#111827]">
                     {stepIdx + 1} / {QUIZ_QUESTIONS.length}
                   </span>
                 </div>
-                <span className="block text-[11px] font-semibold text-[#B09768] text-center">
+                <span className="block text-xs font-medium text-[#795A3F] text-center">
                   Aspek: {currentQ.pilar}
                 </span>
               </div>
 
               {/* Question Heading */}
-              <h2 className="text-lg sm:text-xl font-bold font-display text-[#352719] leading-snug pt-1 tracking-wide">
+              <h2 className="text-lg sm:text-xl font-bold font-sans text-[#111827] leading-snug pt-1 tracking-tight">
                 {currentQ.question}
               </h2>
 
@@ -194,24 +194,24 @@ export const RelationQuizView: React.FC<RelationQuizViewProps> = ({
                       role="radio"
                       aria-checked={isSelected}
                       onClick={() => setSelectedOptionIdx(idx)}
-                      className={`w-full min-h-[56px] p-4 rounded-xl border text-left flex items-center gap-3.5 transition shadow-xs ${
+                      className={`w-full min-h-[56px] p-4 rounded-xl border text-left flex items-center gap-3.5 transition ${
                         isSelected
-                          ? 'bg-[#F7F3EF] border-[#301A05] ring-1 ring-[#301A05]'
-                          : 'bg-white border-[#D9D0C4] hover:border-[#B09768] hover:bg-[#F7F3EF]'
+                          ? 'bg-[#F9F7F5] border-[#795A3F] ring-1 ring-[#795A3F]'
+                          : 'bg-white border-[#E5E7EB] hover:bg-[#F9F7F5] hover:border-[#D1D5DB]'
                       }`}
                     >
                       <span
                         className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                          isSelected ? 'border-[#301A05]' : 'border-[#D9D0C4]'
+                          isSelected ? 'border-[#795A3F]' : 'border-[#D1D5DB]'
                         }`}
                       >
                         {isSelected && (
-                          <span className="w-2.5 h-2.5 rounded-full bg-[#301A05]" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#795A3F]" />
                         )}
                       </span>
                       <span
                         className={`text-sm leading-snug ${
-                          isSelected ? 'font-semibold text-[#301A05]' : 'text-[#352719]'
+                          isSelected ? 'font-semibold text-[#111827]' : 'text-[#374151]'
                         }`}
                       >
                         {option.label}
@@ -228,7 +228,7 @@ export const RelationQuizView: React.FC<RelationQuizViewProps> = ({
                 type="button"
                 disabled={selectedOptionIdx === null}
                 onClick={handleNext}
-                className="btn-heritage-primary w-full min-h-[50px] px-5 text-sm flex items-center justify-center gap-2 shadow-sm disabled:opacity-40"
+                className="w-full min-h-[48px] px-5 text-sm font-medium rounded-lg bg-[#795A3F] text-white hover:bg-[#674A32] flex items-center justify-center gap-2 transition disabled:opacity-40"
               >
                 <span>{stepIdx + 1 === QUIZ_QUESTIONS.length ? 'Lihat Hasil Evaluasi' : 'Lanjutkan'}</span>
                 <ChevronRight className="w-4 h-4" />
@@ -238,21 +238,21 @@ export const RelationQuizView: React.FC<RelationQuizViewProps> = ({
         ) : (
           /* Results View */
           <div className="space-y-5 animate-fadeIn">
-            <div className="rounded-2xl border border-[#D9D0C4] bg-white p-5 text-center space-y-4 shadow-sm">
-              <div className="w-16 h-16 rounded-full bg-[#F7F3EF] border border-[#B09768] text-[#301A05] mx-auto flex items-center justify-center font-bold text-xl font-display">
+            <div className="rounded-xl border border-[#E5E7EB] bg-white p-6 text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-[#F9F7F5] border border-[#C6A17B] text-[#795A3F] mx-auto flex items-center justify-center font-bold text-xl font-sans">
                 {Math.round((totalScore / 15) * 100)}%
               </div>
 
               <div className="space-y-1">
-                <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold border ${evaluation.badgeColor}`}>
+                <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${evaluation.badgeColor}`}>
                   {evaluation.category}
                 </span>
-                <h2 className="text-lg font-bold font-display text-[#352719] pt-1">
+                <h2 className="text-lg font-bold font-sans text-[#111827] pt-1">
                   Hasil Evaluasi Relasi Kesalingan
                 </h2>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#6B5B49] leading-relaxed max-w-md mx-auto">
+              <p className="text-xs sm:text-sm text-[#4B5563] leading-relaxed max-w-md mx-auto">
                 {evaluation.summary}
               </p>
             </div>
@@ -262,7 +262,7 @@ export const RelationQuizView: React.FC<RelationQuizViewProps> = ({
               <button
                 type="button"
                 onClick={() => onExploreTopic(evaluation.recommendedTag)}
-                className="btn-heritage-primary w-full min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm"
+                className="w-full min-h-[48px] px-4 text-xs sm:text-sm font-medium rounded-lg bg-[#795A3F] text-white hover:bg-[#674A32] flex items-center justify-center gap-2 transition"
               >
                 <BookOpen className="w-4 h-4" />
                 <span>{evaluation.recommendationLabel}</span>
@@ -271,9 +271,9 @@ export const RelationQuizView: React.FC<RelationQuizViewProps> = ({
               <button
                 type="button"
                 onClick={handleRestart}
-                className="btn-heritage-soft w-full min-h-[46px] px-4 text-xs font-semibold flex items-center justify-center gap-2"
+                className="w-full min-h-[44px] px-4 text-xs font-medium rounded-lg border border-[#E5E7EB] text-[#374151] hover:bg-gray-50 flex items-center justify-center gap-2 transition"
               >
-                <RotateCcw className="w-4 h-4 text-[#B09768]" />
+                <RotateCcw className="w-4 h-4 text-[#795A3F]" />
                 <span>Ulangi Kuis</span>
               </button>
             </div>

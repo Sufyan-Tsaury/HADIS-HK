@@ -19,7 +19,7 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
   const current = PILAR_SAKINAH[activeIdx];
 
   return (
-    <div className="min-h-dvh lg:min-h-0 bg-[#FDF9F5] flex flex-col pb-24 lg:pb-8">
+    <div className="min-h-dvh lg:min-h-0 bg-white text-[#111827] flex flex-col pb-24 lg:pb-8">
       <SubpageHeader
         title="5 Pilar Keluarga Sakinah"
         onBack={onBack}
@@ -27,9 +27,9 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
           <button
             type="button"
             onClick={onOpenQuiz}
-            className="min-h-[38px] px-2.5 py-1 rounded-lg bg-[#F7F3EF] border border-[#D9D0C4] text-[#301A05] text-xs font-semibold flex items-center gap-1 hover:bg-white transition"
+            className="min-h-[38px] px-3 py-1.5 rounded-lg border border-[#E5E7EB] bg-white text-[#374151] text-xs font-medium flex items-center gap-1.5 hover:bg-gray-50 transition"
           >
-            <HelpCircle className="w-3.5 h-3.5 text-[#B09768]" />
+            <HelpCircle className="w-3.5 h-3.5 text-[#795A3F]" />
             <span>Kuis</span>
           </button>
         }
@@ -38,7 +38,7 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
       {/* Horizontal Pillar Tabs */}
       <nav
         aria-label="Pilih Pilar Keluarga Sakinah"
-        className="flex items-center gap-2 overflow-x-auto no-scrollbar px-4 py-2.5 border-b border-[#D9D0C4] bg-[#FDF9F5]"
+        className="flex items-center gap-2 overflow-x-auto no-scrollbar px-4 py-2.5 border-b border-[#E5E7EB] bg-white"
       >
         {PILAR_SAKINAH.map((pilar, idx) => {
           const isSelected = activeIdx === idx;
@@ -47,10 +47,10 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               key={pilar.title}
               type="button"
               onClick={() => setActiveIdx(idx)}
-              className={`shrink-0 min-h-[40px] px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition whitespace-nowrap ${
+              className={`shrink-0 min-h-[40px] px-3.5 py-1.5 rounded-lg text-xs font-medium border transition whitespace-nowrap ${
                 isSelected
-                  ? 'bg-[#301A05] text-[#FFF9F5] border-[#4C2605] shadow-xs'
-                  : 'bg-white text-[#6B5B49] border-[#D9D0C4] hover:border-[#B09768] hover:text-[#352719]'
+                  ? 'bg-[#795A3F] text-white border-[#795A3F]'
+                  : 'bg-white text-[#4B5563] border-[#E5E7EB] hover:bg-gray-50 hover:text-[#111827]'
               }`}
             >
               {pilar.shortLabel}
@@ -105,42 +105,42 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
 
           {/* Title & Qur'anic Foundation */}
           <div className="text-center space-y-2 px-1">
-            <h2 className="text-xl sm:text-2xl font-bold font-display text-[#352719] tracking-wide">
+            <h2 className="text-xl sm:text-2xl font-bold font-sans text-[#111827] tracking-tight">
               {current.title}
             </h2>
-            <p className="text-xs font-semibold text-[#B09768]">
+            <p className="text-xs font-semibold text-[#795A3F]">
               {current.subtitle}
             </p>
-            <p className="text-xs sm:text-sm text-[#6B5B49] leading-relaxed max-w-lg mx-auto">
+            <p className="text-xs sm:text-sm text-[#4B5563] leading-relaxed max-w-lg mx-auto">
               {current.meaning}
             </p>
           </div>
 
           {/* Dalil Al-Qur'an Card */}
-          <div className="rounded-2xl bg-white border border-[#D9D0C4] p-4 sm:p-5 text-center space-y-2.5 shadow-xs">
+          <div className="rounded-xl bg-[#F9F7F5] border border-[#E5E7EB] p-4 sm:p-5 text-center space-y-2.5">
             <p
               dir="rtl"
-              className="font-arabic text-2xl sm:text-3xl font-bold text-[#301A05] leading-loose"
+              className="font-arabic text-2xl sm:text-3xl font-bold text-[#111827] leading-[2.15]"
             >
               {current.ayatArab}
             </p>
-            <p className="text-xs sm:text-sm text-[#352719] italic leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#374151] italic leading-relaxed">
               &ldquo;{current.terjemahanAyat}&rdquo;
             </p>
-            <span className="inline-block text-xs font-bold text-[#B09768]">
+            <span className="inline-block text-xs font-semibold text-[#795A3F]">
               ({current.surah})
             </span>
           </div>
 
           {/* Implementasi dalam Kehidupan Rumah Tangga */}
-          <div className="rounded-2xl bg-white border border-[#D9D0C4] p-4 space-y-2.5 shadow-xs">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#352719]">
+          <div className="rounded-xl bg-white border border-[#E5E7EB] p-4 space-y-2.5">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#111827]">
               Implementasi dalam Rumah Tangga:
             </h3>
             <div className="space-y-2">
               {current.implementasi.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#352719]">
-                  <CheckCircle2 className="w-4 h-4 text-[#301A05] shrink-0 mt-0.5" />
+                <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#374151]">
+                  <CheckCircle2 className="w-4 h-4 text-[#795A3F] shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{item}</span>
                 </div>
               ))}
@@ -150,9 +150,9 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               <button
                 type="button"
                 onClick={() => onExploreStage(current.relatedStageId)}
-                className="text-xs font-semibold text-[#301A05] hover:text-[#B09768] hover:underline inline-flex items-center gap-1.5 min-h-[36px]"
+                className="text-xs font-medium text-[#795A3F] hover:underline inline-flex items-center gap-1.5 min-h-[36px]"
               >
-                <BookOpen className="w-3.5 h-3.5 text-[#B09768]" />
+                <BookOpen className="w-3.5 h-3.5 text-[#795A3F]" />
                 <span>Telusuri Hadis Terkait Pilar {current.shortLabel} →</span>
               </button>
             </div>
@@ -168,8 +168,8 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
                 type="button"
                 onClick={() => setActiveIdx(i)}
                 aria-label={`Pilar ${i + 1}: ${p.title}`}
-                className={`h-2.5 rounded-full transition-all ${
-                  activeIdx === i ? 'w-6 bg-[#301A05]' : 'w-2.5 bg-[#D9D0C4]'
+                className={`h-2 rounded-full transition-all ${
+                  activeIdx === i ? 'w-6 bg-[#795A3F]' : 'w-2 bg-[#E5E7EB]'
                 }`}
               />
             ))}
@@ -180,7 +180,7 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               type="button"
               disabled={activeIdx === 0}
               onClick={() => setActiveIdx((prev) => Math.max(0, prev - 1))}
-              className="btn-heritage-soft min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-1.5 disabled:opacity-40"
+              className="min-h-[44px] px-4 text-xs sm:text-sm font-medium rounded-lg border border-[#E5E7EB] text-[#374151] hover:bg-gray-50 flex items-center justify-center gap-1.5 disabled:opacity-40 transition"
             >
               <ChevronLeft className="w-4 h-4" />
               <span>Sebelumnya</span>
@@ -190,7 +190,7 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               <button
                 type="button"
                 onClick={() => setActiveIdx((prev) => Math.min(PILAR_SAKINAH.length - 1, prev + 1))}
-                className="btn-heritage-primary min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-sm"
+                className="min-h-[44px] px-4 text-xs sm:text-sm font-medium rounded-lg bg-[#795A3F] text-white hover:bg-[#674A32] flex items-center justify-center gap-1.5 transition"
               >
                 <span>Selanjutnya</span>
                 <ChevronRight className="w-4 h-4" />
@@ -199,7 +199,7 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               <button
                 type="button"
                 onClick={onOpenQuiz}
-                className="btn-heritage-primary min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-sm"
+                className="min-h-[44px] px-4 text-xs sm:text-sm font-medium rounded-lg bg-[#795A3F] text-white hover:bg-[#674A32] flex items-center justify-center gap-1.5 transition"
               >
                 <span>Mulai Kuis Relasi</span>
                 <ChevronRight className="w-4 h-4" />
