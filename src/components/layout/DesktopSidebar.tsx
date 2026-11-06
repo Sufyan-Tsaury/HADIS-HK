@@ -2,7 +2,7 @@ import React from 'react';
 import { STAGES, HADITHS_DATA } from '../../data/hadiths';
 import { StageIcon } from '../navigation/StageIcon';
 import { SHORT_STAGE_LABELS } from '../navigation/stageLabels';
-import { Search, X, BookOpen, HelpCircle, Bookmark, ChevronRight } from 'lucide-react';
+import { Search, X, BookOpen, HelpCircle, Bookmark, ChevronRight, GraduationCap } from 'lucide-react';
 import { BrandLogoMark } from '../common/BrandLogo';
 
 interface DesktopSidebarProps {
@@ -13,11 +13,12 @@ interface DesktopSidebarProps {
   selectedTag: string | null;
   onSelectTag: (tag: string | null) => void;
   savedCount: number;
-  activeDesktopView: 'library' | 'pillars' | 'quiz' | 'saved' | 'quote';
+  activeDesktopView: 'library' | 'pillars' | 'quiz' | 'saved' | 'quote' | 'about';
   onOpenLibrary: () => void;
   onOpenPillars: () => void;
   onOpenQuiz: () => void;
   onOpenSaved: () => void;
+  onOpenProfile?: () => void;
   onResetAll: () => void;
 }
 
@@ -32,6 +33,7 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
   onOpenPillars,
   onOpenQuiz,
   onOpenSaved,
+  onOpenProfile,
 }) => {
   const stageCounts = React.useMemo(() => {
     const counts: Record<string, number> = {};
@@ -181,8 +183,8 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
         </div>
       </div>
 
-      {/* Bottom Bookmark Section in Sidebar */}
-      <div className="p-4 border-t border-[#E5E7EB] bg-[#F9F7F5]">
+      {/* Bottom Bookmark & Profile Section in Sidebar */}
+      <div className="p-4 border-t border-[#E5E7EB] bg-[#F9F7F5] space-y-2">
         <button
           type="button"
           onClick={onOpenSaved}
@@ -202,6 +204,21 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
             </span>
           )}
         </button>
+
+        {onOpenProfile && (
+          <button
+            type="button"
+            onClick={onOpenProfile}
+            className={`w-full min-h-[38px] px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-2 transition ${
+              activeDesktopView === 'about'
+                ? 'bg-[#795A3F] text-white shadow-xs'
+                : 'bg-white border border-[#E5E7EB] text-[#111827] hover:border-[#C6A17B]'
+            }`}
+          >
+            <GraduationCap className={`w-4 h-4 ${activeDesktopView === 'about' ? 'text-white' : 'text-[#795A3F]'}`} />
+            <span>Profil Peneliti</span>
+          </button>
+        )}
       </div>
     </aside>
   );

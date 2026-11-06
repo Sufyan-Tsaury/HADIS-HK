@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { BookOpen, HelpCircle, X, ChevronRight } from 'lucide-react';
+import { BookOpen, HelpCircle, X, ChevronRight, GraduationCap } from 'lucide-react';
 
 interface EdukasiMenuSheetProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectPillars: () => void;
   onSelectQuiz: () => void;
+  onSelectProfile?: () => void;
 }
 
 export const EdukasiMenuSheet: React.FC<EdukasiMenuSheetProps> = ({
@@ -13,6 +14,7 @@ export const EdukasiMenuSheet: React.FC<EdukasiMenuSheetProps> = ({
   onClose,
   onSelectPillars,
   onSelectQuiz,
+  onSelectProfile,
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -131,6 +133,32 @@ export const EdukasiMenuSheet: React.FC<EdukasiMenuSheetProps> = ({
           </div>
           <ChevronRight className="w-5 h-5 text-[#9CA3AF] shrink-0" />
         </button>
+
+        {onSelectProfile && (
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              onSelectProfile();
+            }}
+            className="w-full min-h-[68px] p-4 rounded-xl border border-[#E5E7EB] bg-white hover:border-gray-300 hover:bg-gray-50 flex items-center justify-between gap-3 text-left transition"
+          >
+            <div className="flex items-center gap-3.5">
+              <div className="w-11 h-11 rounded-lg bg-[#795A3F] text-white flex items-center justify-center shrink-0">
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="block text-sm font-semibold text-[#111827]">
+                  Profil Peneliti &amp; Pengembang
+                </span>
+                <span className="block text-xs text-[#6B7280] mt-0.5">
+                  Sufyan Tsaury • Jurusan Hukum Keluarga UIN SSC
+                </span>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-[#9CA3AF] shrink-0" />
+          </button>
+        )}
       </div>
     </dialog>
   );

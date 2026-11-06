@@ -15,15 +15,19 @@ import { RelationQuizView } from './components/quiz/RelationQuizView';
 import { LibraryPage } from './pages/LibraryPage';
 import { HadithDetailPage } from './pages/HadithDetailPage';
 import { SavedPage } from './pages/SavedPage';
+import { AboutProfilePage } from './pages/AboutProfilePage';
 import { Bookmark, Share2, RotateCcw, BookOpen } from 'lucide-react';
 
-type ActiveRoute = 'library' | 'detail' | 'quote' | 'pillars' | 'quiz' | 'saved';
+type ActiveRoute = 'library' | 'detail' | 'quote' | 'pillars' | 'quiz' | 'saved' | 'about';
 
 const getInitialRoute = (): ActiveRoute => {
   if (typeof window !== 'undefined') {
     const hash = window.location.hash.replace('#/', '').replace('#', '');
-    if (['library', 'detail', 'quote', 'pillars', 'quiz', 'saved'].includes(hash)) {
+    if (['library', 'detail', 'quote', 'pillars', 'quiz', 'saved', 'about'].includes(hash)) {
       return hash as ActiveRoute;
+    }
+    if (hash === 'profil' || hash === 'profile') {
+      return 'about';
     }
   }
   return 'library';
@@ -152,8 +156,8 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const desktopActiveMode: 'library' | 'pillars' | 'quiz' | 'saved' | 'quote' =
-    route === 'pillars' || route === 'quiz' || route === 'saved' || route === 'quote'
+  const desktopActiveMode: 'library' | 'pillars' | 'quiz' | 'saved' | 'quote' | 'about' =
+    route === 'pillars' || route === 'quiz' || route === 'saved' || route === 'quote' || route === 'about'
       ? route
       : 'library';
 
@@ -196,6 +200,7 @@ export function App() {
         onOpenPillars={() => navigateTo('pillars')}
         onOpenQuiz={() => navigateTo('quiz')}
         onOpenSaved={() => navigateTo('saved')}
+        onOpenProfile={() => navigateTo('about')}
         onResetAll={handleResetFilters}
       />
 
@@ -371,6 +376,15 @@ export function App() {
                 onBack={() => setRoute('library')}
               />
             )}
+
+            {desktopActiveMode === 'about' && (
+              <div className="flex-1 overflow-y-auto">
+                <AboutProfilePage
+                  onBack={() => setRoute('library')}
+                  onExploreHadith={() => setRoute('library')}
+                />
+              </div>
+            )}
           </main>
         )}
       </div>
@@ -450,6 +464,13 @@ export function App() {
             onRemoveSaved={toggleSaveHadith}
           />
         )}
+
+        {route === 'about' && (
+          <AboutProfilePage
+            onBack={() => setRoute('library')}
+            onExploreHadith={() => setRoute('library')}
+          />
+        )}
       </div>
 
       {/* =================================================================
@@ -484,6 +505,7 @@ export function App() {
         onClose={() => setIsEdukasiSheetOpen(false)}
         onSelectPillars={() => navigateTo('pillars')}
         onSelectQuiz={() => navigateTo('quiz')}
+        onSelectProfile={() => navigateTo('about')}
       />
     </div>
   );
