@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search, Bookmark, X, ChevronLeft } from 'lucide-react';
+import { BrandLogoMark } from '../common/BrandLogo';
 
 interface AppHeaderProps {
   searchQuery: string;
@@ -26,9 +27,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
             onClick={onLogoClick}
             className="flex items-center gap-2.5 text-left min-h-[44px]"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#795A3F] text-white flex items-center justify-center font-bold text-sm tracking-tight shrink-0 shadow-xs">
-              HK
-            </div>
+            <BrandLogoMark size={40} concept="sanctuary" />
             <div>
               <span className="block text-base font-bold text-[#111827] leading-tight tracking-wide">
                 Hadis HK

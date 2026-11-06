@@ -42,7 +42,10 @@ Hadis HK dirancang bukan sebagai *dashboard SaaS* generik, bukan pula aplikasi o
 ## 2. VISUAL IDENTITY
 
 ### 2.1 Identitas Merek (*Brand Identity*)
-- **Logo Mark**: Persegi bersudut tumpul (*rounded square*) berukuran $40 \times 40\text{px}$ dengan warna dasar *Heritage Dark Wood* (`#795A3F`), memuat inisial kapital tebal `HK` berwarna putih bersih (`#FFFFFF`).
+- **Logo Mark (Emblem Sakinah & Kitab Hadis)**: Persegi bersudut tumpul (*squircle*, $40 \times 40\text{px}$) dengan warna dasar *Heritage Dark Wood* (`#795A3F`) dan lis halus aksen emas *Camel Gold* (`#C6A17B`). Di dalamnya memuat perpaduan tiga simbol inti:
+  1. **Kubah Sakinah**: Siluet kubah arsitektur Islam klasik yang melambangkan naungan ketenteraman, perlindungan, dan kedamaian rumah tangga (*sakinah mawaddah wa rahmah*).
+  2. **Bintang Khatam 8 Penjuru**: Bintang petunjuk keilmuan Islam (*Najm al-Huda*) berwarna putih bersih (`#FFFFFF`) di dalam kubah sebagai simbol berkah hidayah dan kemuliaan ilmu hadis.
+  3. **Kitab Hadis Terbuka (*Open Scripture*)**: Lembaran kitab terbuka di bagian dasar bertumpu kokoh dengan aksen emas, melambangkan sunnah Nabi ﷺ sebagai fondasi penetapan hukum keluarga (*Fiqh al-Usrah*).
 - **Brand Title**: "Hadis HK" — font sans-serif tebal (*Inter Bold*), ukuran 16px, pelacakan huruf rapat (*tracking-tight*).
 - **Brand Subtitle**: "Riset Hadis • Hukum Keluarga Islam" — font sans-serif medium (*Inter Medium*), ukuran 11px, warna netral abu-abu (`#6B7280`).
 

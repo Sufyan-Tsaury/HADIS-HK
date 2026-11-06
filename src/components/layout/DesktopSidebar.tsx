@@ -3,6 +3,7 @@ import { STAGES, HADITHS_DATA } from '../../data/hadiths';
 import { StageIcon } from '../navigation/StageIcon';
 import { SHORT_STAGE_LABELS } from '../navigation/stageLabels';
 import { Search, X, BookOpen, HelpCircle, Bookmark, ChevronRight } from 'lucide-react';
+import { BrandLogoMark } from '../common/BrandLogo';
 
 interface DesktopSidebarProps {
   searchQuery: string;
@@ -52,9 +53,7 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
           onClick={onOpenLibrary}
           className="flex items-center gap-2.5 text-left w-full group"
         >
-          <div className="w-9 h-9 rounded-xl bg-[#795A3F] text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-xs">
-            HK
-          </div>
+          <BrandLogoMark size={38} concept="sanctuary" />
           <div className="min-w-0">
             <span className="block text-base font-bold text-[#111827] leading-tight group-hover:text-[#795A3F] transition tracking-wide">
               Hadis HK
