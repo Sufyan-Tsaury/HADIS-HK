@@ -1,37 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F9F7F5;
-  --bg-warm-tint: #F6F1EA;
-  --brown-primary: #C6A17B;
-  --brown-dark: #795A3F;
-  --brown-darker: #634830;
-  --text-primary: #111827;
-  --text-secondary: #6B7280;
-  --border-color: #E5E7EB;
-  --border-warm: #E5DCD0;
+  /* Brand & Surfaces from DESIGN.md */
+  --color-canvas: #C8B69F;
+  --color-canvas-muted: #BDAE96;
+  --color-surface: #FDF9F5;
+  --color-surface-soft: #F7F3EF;
+  --color-surface-raised: #FFFFFF;
+  --color-brand-primary: #301A05;
+  --color-brand-deep: #220B02;
+  --color-brand-secondary: #4C2605;
+  --color-accent-gold: #B09768;
+  --color-accent-sand: #C7B39C;
+
+  /* Text, icon & border */
+  --color-text-primary: #352719;
+  --color-text-secondary: #6B5B49;
+  --color-text-inverted: #FFF9F5;
+  --color-icon-muted: #E5DCCF;
+  --color-border: #D9D0C4;
+  --color-border-dark: #6B5133;
+
+  /* Semantic */
+  --color-success: #486044;
+  --color-info: #5B625E;
+  --color-warning: #8A5A24;
+  --color-danger: #8B3C2F;
+
+  /* Typography */
+  --font-ui: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Lora', Georgia, serif;
+  --font-arabic: 'Noto Naskh Arabic', 'Amiri', 'Traditional Arabic', serif;
+
+  /* Shadows */
+  --shadow-card: 0 2px 10px rgb(48 26 5 / 8%);
+  --shadow-floating: 0 6px 18px rgb(34 11 2 / 14%);
+  --shadow-focus: 0 0 0 3px rgb(176 151 104 / 28%);
 }
 
 @layer base {
   html {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-family: var(--font-ui);
     line-height: 1.55;
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
     min-height: 100dvh;
     overflow-x: hidden;
     text-align: start;
     overflow-wrap: break-word;
   }
 
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     text-wrap: balance;
   }
 
@@ -40,10 +65,15 @@
   }
 }
 
-/* Tipografi Arab Klasik & Akademik (Unitless line-height untuk skala proporsional) */
+/* Tipografi Display & Editorial Heritage */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Tipografi Arab Klasik & Akademik (Unitless line-height untuk harakat proporsional) */
 .font-arabic {
-  font-family: 'Amiri', 'Traditional Arabic', serif;
-  line-height: 2.35;
+  font-family: var(--font-arabic);
+  line-height: 2.15;
 }
 
 /* Native Modal Dialog & Bottom Sheet Rules (Modern Web Platform Standard) */
@@ -54,8 +84,8 @@ dialog:modal {
 dialog::backdrop {
   overflow: hidden;
   overscroll-behavior: contain;
-  background-color: rgba(17, 24, 39, 0.45);
-  backdrop-filter: blur(2px);
+  background-color: rgb(34 11 2 / 56%);
+  backdrop-filter: blur(3px);
 }
 
 dialog.bottom-sheet-dialog[open] {
@@ -66,80 +96,89 @@ dialog.bottom-sheet-dialog[open] {
   max-width: 100%;
   max-height: 88dvh;
   border: none;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--color-border);
   border-radius: 1.25rem 1.25rem 0 0;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
   padding: 0;
 }
 
 @media (min-width: 640px) {
   dialog.bottom-sheet-dialog[open] {
     margin: auto;
-    max-width: 30rem;
-    border: 1px solid var(--border-color);
-    border-radius: 1rem;
+    max-width: 32rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
   }
 }
 
-/* Design System Buttons */
+/* Design System Buttons — Warm Heritage Tone */
+.btn-heritage-primary,
 .btn-brown-solid {
-  background-color: var(--brown-dark);
-  color: #FFFFFF;
-  border: 1px solid var(--brown-dark);
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-inverted);
+  border: 1px solid var(--color-brand-primary);
   border-radius: 0.75rem;
   font-weight: 600;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
+.btn-heritage-primary:hover,
 .btn-brown-solid:hover {
-  background-color: var(--brown-darker);
-  border-color: var(--brown-darker);
+  background-color: var(--color-brand-deep);
+  border-color: var(--color-brand-deep);
 }
+.btn-heritage-primary:disabled,
 .btn-brown-solid:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
+.btn-heritage-gold,
 .btn-brown,
 .btn-primary {
-  background-color: var(--brown-primary);
-  color: #2B2118;
-  border: 1px solid #B78D66;
-  border-radius: 0.625rem;
+  background-color: var(--color-accent-gold);
+  color: #FFFFFF;
+  border: 1px solid #9D8456;
+  border-radius: 0.75rem;
   font-weight: 600;
   transition: background-color 0.15s ease;
 }
+.btn-heritage-gold:hover,
 .btn-brown:hover,
 .btn-primary:hover {
-  background-color: #B78D66;
+  background-color: #9D8456;
 }
 
+.btn-heritage-soft,
 .btn-soft {
-  background-color: var(--bg-warm-tint);
-  color: var(--brown-dark);
-  border: 1px solid var(--border-warm);
+  background-color: var(--color-surface-soft);
+  color: var(--color-brand-primary);
+  border: 1px solid var(--color-border);
   border-radius: 0.75rem;
   font-weight: 600;
   transition: background-color 0.15s ease, border-color 0.15s ease;
 }
+.btn-heritage-soft:hover,
 .btn-soft:hover {
   background-color: #EFE6DA;
-  border-color: var(--brown-primary);
+  border-color: var(--color-accent-gold);
 }
 
+.btn-heritage-outline,
 .btn-outline,
 .btn-secondary {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
   border-radius: 0.75rem;
   font-weight: 500;
   transition: border-color 0.15s ease, background-color 0.15s ease;
 }
+.btn-heritage-outline:hover,
 .btn-outline:hover,
 .btn-secondary:hover {
-  border-color: var(--brown-primary);
-  background-color: var(--bg-secondary);
+  border-color: var(--color-accent-gold);
+  background-color: var(--color-surface-soft);
 }
 
 /* Utilitas Horizontal Scroll Tanpa Scrollbar Mengganggu */
@@ -157,12 +196,12 @@ dialog.bottom-sheet-dialog[open] {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--color-surface);
 }
 ::-webkit-scrollbar-thumb {
-  background: #D1D5DB;
+  background: var(--color-border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9CA3AF;
+  background: var(--color-text-secondary);
 }

@@ -19,26 +19,26 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
   const current = PILAR_SAKINAH[activeIdx];
 
   return (
-    <div className="min-h-dvh lg:min-h-0 bg-white flex flex-col pb-24 lg:pb-8">
+    <div className="min-h-dvh lg:min-h-0 bg-[#FDF9F5] flex flex-col pb-24 lg:pb-8">
       <SubpageHeader
         title="5 Pilar Keluarga Sakinah"
         onBack={onBack}
-        rightSlot={
+        rightAction={
           <button
             type="button"
             onClick={onOpenQuiz}
-            className="min-h-[38px] px-2.5 py-1 rounded-lg bg-[#F6F1EA] text-[#795A3F] text-xs font-semibold flex items-center gap-1 hover:bg-[#EFE6DA] transition"
+            className="min-h-[38px] px-2.5 py-1 rounded-lg bg-[#F7F3EF] border border-[#D9D0C4] text-[#301A05] text-xs font-semibold flex items-center gap-1 hover:bg-white transition"
           >
-            <HelpCircle className="w-3.5 h-3.5" />
+            <HelpCircle className="w-3.5 h-3.5 text-[#B09768]" />
             <span>Kuis</span>
           </button>
         }
       />
 
-      {/* Horizontal Pillar Tabs (Matches Screen 5 Reference) */}
+      {/* Horizontal Pillar Tabs */}
       <nav
         aria-label="Pilih Pilar Keluarga Sakinah"
-        className="flex items-center gap-2 overflow-x-auto no-scrollbar px-4 py-2.5 border-b border-[#E5E7EB] bg-white"
+        className="flex items-center gap-2 overflow-x-auto no-scrollbar px-4 py-2.5 border-b border-[#D9D0C4] bg-[#FDF9F5]"
       >
         {PILAR_SAKINAH.map((pilar, idx) => {
           const isSelected = activeIdx === idx;
@@ -49,8 +49,8 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               onClick={() => setActiveIdx(idx)}
               className={`shrink-0 min-h-[40px] px-3.5 py-1.5 rounded-xl text-xs font-semibold border transition whitespace-nowrap ${
                 isSelected
-                  ? 'bg-[#F6F1EA] text-[#795A3F] border-[#C6A17B]'
-                  : 'bg-white text-[#6B7280] border-[#E5E7EB] hover:text-[#111827]'
+                  ? 'bg-[#301A05] text-[#FFF9F5] border-[#4C2605] shadow-xs'
+                  : 'bg-white text-[#6B5B49] border-[#D9D0C4] hover:border-[#B09768] hover:text-[#352719]'
               }`}
             >
               {pilar.shortLabel}
@@ -62,8 +62,8 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
       {/* Main Content */}
       <div className="max-w-2xl w-full mx-auto px-4 pt-4 space-y-5 flex-1 flex flex-col justify-between">
         <div className="space-y-5">
-          {/* Editorial Illustration Card: Open Mushaf on Wooden Rehal (Matches Screen 5) */}
-          <div className="rounded-2xl overflow-hidden border border-[#E5DCD0] bg-[#EFE7DC] aspect-[16/9] flex items-center justify-center relative">
+          {/* Editorial Illustration Card: Open Mushaf on Wooden Rehal */}
+          <div className="rounded-2xl overflow-hidden border border-[#D9D0C4] bg-[#F7F3EF] aspect-[16/9] flex items-center justify-center relative shadow-xs">
             <svg
               viewBox="0 0 400 225"
               fill="none"
@@ -72,75 +72,75 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               aria-hidden="true"
             >
               {/* Warm Ambient Backdrop */}
-              <rect width="400" height="225" fill="#EDE3D5" />
-              <circle cx="200" cy="95" r="88" fill="#F8F3EC" fillOpacity="0.8" />
-              <rect y="170" width="400" height="55" fill="#DFD1BE" />
+              <rect width="400" height="225" fill="#F7F3EF" />
+              <circle cx="200" cy="95" r="88" fill="#FDF9F5" fillOpacity="0.85" />
+              <rect y="170" width="400" height="55" fill="#E8DEC\-B" />
 
               {/* Wooden Rehal (X-Stand Book Rest) */}
-              <path d="M136 196L254 128L262 138L144 206L136 196Z" fill="#634830" />
-              <path d="M264 196L146 128L138 138L256 206L264 196Z" fill="#795A3F" />
+              <path d="M136 196L254 128L262 138L144 206L136 196Z" fill="#301A05" />
+              <path d="M264 196L146 128L138 138L256 206L264 196Z" fill="#4C2605" />
 
               {/* Open Mushaf Pages */}
               <path
                 d="M95 112L198 136V90L98 68C95 82 95 98 95 112Z"
                 fill="#FFFFFF"
-                stroke="#C6A17B"
+                stroke="#B09768"
                 strokeWidth="2"
               />
               <path
                 d="M305 112L202 136V90L302 68C305 82 305 98 305 112Z"
                 fill="#FCF9F5"
-                stroke="#C6A17B"
+                stroke="#B09768"
                 strokeWidth="2"
               />
               {/* Mushaf Leather Cover */}
-              <path d="M90 116L200 142L310 116L305 122L200 149L95 122L90 116Z" fill="#795A3F" />
+              <path d="M90 116L200 142L310 116L305 122L200 149L95 122L90 116Z" fill="#301A05" />
               {/* Subtle Calligraphy Lines on Pages */}
-              <line x1="118" y1="86" x2="180" y2="100" stroke="#C6A17B" strokeWidth="2" strokeLinecap="round" />
-              <line x1="118" y1="98" x2="176" y2="111" stroke="#D6C2AE" strokeWidth="2" strokeLinecap="round" />
-              <line x1="220" y1="100" x2="282" y2="86" stroke="#C6A17B" strokeWidth="2" strokeLinecap="round" />
-              <line x1="224" y1="111" x2="282" y2="98" stroke="#D6C2AE" strokeWidth="2" strokeLinecap="round" />
+              <line x1="118" y1="86" x2="180" y2="100" stroke="#B09768" strokeWidth="2" strokeLinecap="round" />
+              <line x1="118" y1="98" x2="176" y2="111" stroke="#D9D0C4" strokeWidth="2" strokeLinecap="round" />
+              <line x1="220" y1="100" x2="282" y2="86" stroke="#B09768" strokeWidth="2" strokeLinecap="round" />
+              <line x1="224" y1="111" x2="282" y2="98" stroke="#D9D0C4" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </div>
 
           {/* Title & Qur'anic Foundation */}
           <div className="text-center space-y-2 px-1">
-            <h2 className="text-xl font-bold text-[#111827]">
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-[#352719] tracking-wide">
               {current.title}
             </h2>
-            <p className="text-xs font-semibold text-[#795A3F]">
+            <p className="text-xs font-semibold text-[#B09768]">
               {current.subtitle}
             </p>
-            <p className="text-xs sm:text-sm text-[#374151] leading-relaxed max-w-lg mx-auto">
+            <p className="text-xs sm:text-sm text-[#6B5B49] leading-relaxed max-w-lg mx-auto">
               {current.meaning}
             </p>
           </div>
 
           {/* Dalil Al-Qur'an Card */}
-          <div className="rounded-2xl bg-[#F9F7F5] border border-[#E5E7EB] p-4 sm:p-5 text-center space-y-2.5">
+          <div className="rounded-2xl bg-white border border-[#D9D0C4] p-4 sm:p-5 text-center space-y-2.5 shadow-xs">
             <p
               dir="rtl"
-              className="font-arabic text-2xl sm:text-3xl font-bold text-[#111827]"
+              className="font-arabic text-2xl sm:text-3xl font-bold text-[#301A05] leading-loose"
             >
               {current.ayatArab}
             </p>
-            <p className="text-xs sm:text-sm text-[#374151] italic leading-relaxed">
-              {current.terjemahanAyat}
+            <p className="text-xs sm:text-sm text-[#352719] italic leading-relaxed">
+              &ldquo;{current.terjemahanAyat}&rdquo;
             </p>
-            <span className="inline-block text-xs font-bold text-[#795A3F]">
+            <span className="inline-block text-xs font-bold text-[#B09768]">
               ({current.surah})
             </span>
           </div>
 
           {/* Implementasi dalam Kehidupan Rumah Tangga */}
-          <div className="rounded-2xl bg-white border border-[#E5E7EB] p-4 space-y-2.5">
-            <h3 className="text-xs font-bold text-[#111827] uppercase tracking-wide">
+          <div className="rounded-2xl bg-white border border-[#D9D0C4] p-4 space-y-2.5 shadow-xs">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[#352719]">
               Implementasi dalam Rumah Tangga:
             </h3>
             <div className="space-y-2">
               {current.implementasi.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#374151]">
-                  <CheckCircle2 className="w-4 h-4 text-[#795A3F] shrink-0 mt-0.5" />
+                <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#352719]">
+                  <CheckCircle2 className="w-4 h-4 text-[#301A05] shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{item}</span>
                 </div>
               ))}
@@ -150,16 +150,16 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               <button
                 type="button"
                 onClick={() => onExploreStage(current.relatedStageId)}
-                className="text-xs font-semibold text-[#795A3F] hover:underline inline-flex items-center gap-1.5 min-h-[36px]"
+                className="text-xs font-semibold text-[#301A05] hover:text-[#B09768] hover:underline inline-flex items-center gap-1.5 min-h-[36px]"
               >
-                <BookOpen className="w-3.5 h-3.5" />
+                <BookOpen className="w-3.5 h-3.5 text-[#B09768]" />
                 <span>Telusuri Hadis Terkait Pilar {current.shortLabel} →</span>
               </button>
             </div>
           </div>
         </div>
 
-        {/* Pagination Dots & Prev/Next Controls (Matches Screen 5) */}
+        {/* Pagination Dots & Prev/Next Controls */}
         <div className="pt-4 space-y-4">
           <div className="flex items-center justify-center gap-2" aria-label="Indikator Halaman Pilar">
             {PILAR_SAKINAH.map((p, i) => (
@@ -169,7 +169,7 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
                 onClick={() => setActiveIdx(i)}
                 aria-label={`Pilar ${i + 1}: ${p.title}`}
                 className={`h-2.5 rounded-full transition-all ${
-                  activeIdx === i ? 'w-6 bg-[#795A3F]' : 'w-2.5 bg-[#D6C2AE]'
+                  activeIdx === i ? 'w-6 bg-[#301A05]' : 'w-2.5 bg-[#D9D0C4]'
                 }`}
               />
             ))}
@@ -180,7 +180,7 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               type="button"
               disabled={activeIdx === 0}
               onClick={() => setActiveIdx((prev) => Math.max(0, prev - 1))}
-              className="btn-soft min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-1.5 disabled:opacity-40"
+              className="btn-heritage-soft min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-1.5 disabled:opacity-40"
             >
               <ChevronLeft className="w-4 h-4" />
               <span>Sebelumnya</span>
@@ -190,7 +190,7 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               <button
                 type="button"
                 onClick={() => setActiveIdx((prev) => Math.min(PILAR_SAKINAH.length - 1, prev + 1))}
-                className="btn-brown-solid min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-1.5"
+                className="btn-heritage-primary min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-sm"
               >
                 <span>Selanjutnya</span>
                 <ChevronRight className="w-4 h-4" />
@@ -199,7 +199,7 @@ export const FivePillarsView: React.FC<FivePillarsViewProps> = ({
               <button
                 type="button"
                 onClick={onOpenQuiz}
-                className="btn-brown-solid min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-1.5"
+                className="btn-heritage-primary min-h-[48px] px-4 text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-sm"
               >
                 <span>Mulai Kuis Relasi</span>
                 <ChevronRight className="w-4 h-4" />

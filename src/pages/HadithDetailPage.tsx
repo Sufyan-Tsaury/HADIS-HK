@@ -32,19 +32,19 @@ export const HadithDetailPage: React.FC<HadithDetailPageProps> = ({
       : null;
 
   return (
-    <div className="min-h-dvh bg-white pb-24">
-      {/* Top Bar Matching Reference Screen 2 */}
-      <header className="sticky top-0 z-20 bg-white border-b border-[#E5E7EB] px-3 h-14 flex items-center justify-between gap-2">
+    <div className="min-h-dvh bg-[#FDF9F5] pb-24">
+      {/* Top Bar Matching Reference */}
+      <header className="sticky top-0 z-20 bg-[#FDF9F5]/95 backdrop-blur-sm border-b border-[#D9D0C4] px-3 h-14 flex items-center justify-between gap-2">
         <button
           type="button"
           onClick={onBack}
           aria-label="Kembali ke daftar hadis"
-          className="min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-[#111827] hover:bg-[#F9F7F5] transition"
+          className="min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-[#352719] hover:bg-[#F7F3EF] transition"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        <span className="text-xs font-semibold text-[#6B7280] truncate">
+        <span className="text-xs font-semibold text-[#6B5B49] truncate font-display">
           Hadis #{canonicalNumber} dari {HADITHS_DATA.length}
         </span>
 
@@ -53,10 +53,10 @@ export const HadithDetailPage: React.FC<HadithDetailPageProps> = ({
             type="button"
             onClick={() => onToggleSave(hadith.id)}
             aria-label={isSaved ? 'Hapus dari tersimpan' : 'Simpan hadis'}
-            className="min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-[#111827] hover:bg-[#F9F7F5] transition"
+            className="min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-[#352719] hover:bg-[#F7F3EF] transition"
           >
             <Bookmark
-              className={`w-5 h-5 ${isSaved ? 'text-[#795A3F] fill-[#795A3F]' : ''}`}
+              className={`w-5 h-5 ${isSaved ? 'text-[#301A05] fill-[#301A05]' : 'text-[#6B5B49]'}`}
             />
           </button>
 
@@ -64,7 +64,7 @@ export const HadithDetailPage: React.FC<HadithDetailPageProps> = ({
             type="button"
             onClick={() => onOpenQuote(hadith)}
             aria-label="Buka Studio Kartu Kutipan"
-            className="min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-[#111827] hover:bg-[#F9F7F5] transition"
+            className="min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-[#301A05] hover:bg-[#F7F3EF] transition"
           >
             <Share2 className="w-5 h-5" />
           </button>
@@ -86,7 +86,7 @@ export const HadithDetailPage: React.FC<HadithDetailPageProps> = ({
         {/* Sequential Hadith Prev / Next Navigation */}
         <nav
           aria-label="Navigasi Hadis Sebelumnya dan Selanjutnya"
-          className="pt-4 border-t border-[#E5E7EB] grid grid-cols-2 gap-3"
+          className="pt-4 border-t border-[#D9D0C4] grid grid-cols-2 gap-3"
         >
           <button
             type="button"
@@ -97,7 +97,7 @@ export const HadithDetailPage: React.FC<HadithDetailPageProps> = ({
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
-            className="btn-outline min-h-[48px] px-3 text-xs font-semibold flex items-center justify-center gap-1.5 disabled:opacity-40"
+            className="btn-heritage-outline min-h-[48px] px-3 text-xs font-semibold flex items-center justify-center gap-1.5 disabled:opacity-40"
           >
             <ChevronLeft className="w-4 h-4 shrink-0" />
             <span className="truncate">Hadis Sebelumnya</span>
@@ -112,7 +112,7 @@ export const HadithDetailPage: React.FC<HadithDetailPageProps> = ({
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }
             }}
-            className="btn-soft min-h-[48px] px-3 text-xs font-semibold flex items-center justify-center gap-1.5 disabled:opacity-40"
+            className="btn-heritage-soft min-h-[48px] px-3 text-xs font-semibold flex items-center justify-center gap-1.5 disabled:opacity-40"
           >
             <span className="truncate">Hadis Selanjutnya</span>
             <ChevronRight className="w-4 h-4 shrink-0" />

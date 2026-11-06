@@ -153,7 +153,7 @@ export function App() {
       : desktopDisplayedHadith.stageId;
 
   return (
-    <div className="min-h-dvh bg-white text-[#111827] flex flex-col lg:flex-row">
+    <div className="min-h-dvh bg-[#FDF9F5] text-[#352719] flex flex-col lg:flex-row">
       {/* =================================================================
           1. DESKTOP LEFT SIDEBAR (>= 1024px)
       ================================================================= */}
@@ -182,18 +182,18 @@ export function App() {
             {/* Middle Column: Daftar Hadis */}
             <section
               aria-label="Daftar Riwayat Hadis"
-              className="lg:w-[300px] xl:w-[356px] shrink-0 h-dvh sticky top-0 overflow-y-auto border-r border-[#E5E7EB] bg-[#F9F7F5]/60 p-4 space-y-3"
+              className="lg:w-[300px] xl:w-[356px] shrink-0 h-dvh sticky top-0 overflow-y-auto border-r border-[#D9D0C4] bg-[#F7F3EF]/60 p-4 space-y-3"
             >
-              <div className="flex items-center justify-between gap-2 pb-2 border-b border-[#E5E7EB]">
+              <div className="flex items-center justify-between gap-2 pb-2 border-b border-[#D9D0C4]">
                 <div className="min-w-0">
-                  <h1 className="text-sm font-bold text-[#111827] truncate">
+                  <h1 className="text-sm font-bold font-display text-[#352719] truncate tracking-wide">
                     {selectedStageId !== 'all'
                       ? STAGES.find((s) => s.id === selectedStageId)?.title
                       : selectedTag
                       ? `Topik #${selectedTag}`
                       : 'Seluruh Riwayat Hadis'}
                   </h1>
-                  <p className="text-[11px] text-[#6B7280]">
+                  <p className="text-[11px] text-[#6B5B49]">
                     {filteredHadiths.length} hadis ditampilkan
                   </p>
                 </div>
@@ -202,7 +202,7 @@ export function App() {
                   <button
                     type="button"
                     onClick={handleResetFilters}
-                    className="min-h-[34px] px-2.5 py-1 rounded-lg bg-white border border-[#E5E7EB] text-[11px] font-semibold text-[#795A3F] hover:border-[#C6A17B] flex items-center gap-1 shrink-0"
+                    className="min-h-[34px] px-2.5 py-1 rounded-lg bg-white border border-[#D9D0C4] text-[11px] font-semibold text-[#301A05] hover:border-[#B09768] flex items-center gap-1 shrink-0 shadow-xs"
                   >
                     <RotateCcw className="w-3 h-3" />
                     <span>Reset</span>
@@ -211,15 +211,15 @@ export function App() {
               </div>
 
               {filteredHadiths.length === 0 ? (
-                <div className="rounded-xl border border-[#E5E7EB] bg-white p-6 text-center space-y-2.5">
-                  <BookOpen className="w-6 h-6 text-[#9CA3AF] mx-auto" />
-                  <p className="text-xs font-semibold text-[#111827]">
+                <div className="rounded-xl border border-[#D9D0C4] bg-white p-6 text-center space-y-2.5 shadow-xs">
+                  <BookOpen className="w-6 h-6 text-[#8A8177] mx-auto" />
+                  <p className="text-xs font-semibold text-[#352719]">
                     Tidak ada hadis yang cocok
                   </p>
                   <button
                     type="button"
                     onClick={handleResetFilters}
-                    className="btn-soft px-3 py-1.5 text-xs"
+                    className="btn-heritage-soft px-3 py-1.5 text-xs"
                   >
                     Reset Filter
                   </button>
@@ -244,14 +244,14 @@ export function App() {
               )}
             </section>
 
-            {/* Right Column: Area Pembacaan Utama (Matches Screen 8 Reference) */}
-            <main className="flex-1 min-w-0 bg-white overflow-y-auto">
+            {/* Right Column: Area Pembacaan Utama */}
+            <main className="flex-1 min-w-0 bg-[#FDF9F5] overflow-y-auto">
               {/* Top Breadcrumb Bar */}
-              <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-xs border-b border-[#E5E7EB] px-6 xl:px-8 h-14 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-xs text-[#6B7280] font-medium truncate">
-                  <span className="text-[#795A3F] font-semibold">{desktopStageShort}</span>
+              <div className="sticky top-0 z-10 bg-[#FDF9F5]/95 backdrop-blur-xs border-b border-[#D9D0C4] px-6 xl:px-8 h-14 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-2 text-xs text-[#6B5B49] font-medium truncate">
+                  <span className="text-[#301A05] font-bold font-display tracking-wide">{desktopStageShort}</span>
                   <span aria-hidden="true">›</span>
-                  <span className="text-[#111827] font-semibold">
+                  <span className="text-[#352719] font-semibold">
                     #{desktopCanonicalIdx}
                   </span>
                 </div>
@@ -265,12 +265,12 @@ export function App() {
                         ? 'Hapus dari tersimpan'
                         : 'Simpan hadis'
                     }
-                    className="min-w-[40px] min-h-[40px] rounded-xl border border-[#E5E7EB] hover:border-[#C6A17B] flex items-center justify-center text-[#111827] transition"
+                    className="min-w-[40px] min-h-[40px] rounded-xl border border-[#D9D0C4] bg-white hover:border-[#B09768] flex items-center justify-center text-[#352719] transition shadow-xs"
                   >
                     <Bookmark
                       className={`w-4 h-4 ${
                         savedIds.includes(desktopDisplayedHadith.id)
-                          ? 'text-[#795A3F] fill-[#795A3F]'
+                          ? 'text-[#301A05] fill-[#301A05]'
                           : ''
                       }`}
                     />
@@ -279,7 +279,7 @@ export function App() {
                   <button
                     type="button"
                     onClick={() => handleOpenQuoteStudio(desktopDisplayedHadith)}
-                    className="btn-soft min-h-[40px] px-3.5 text-xs flex items-center gap-1.5"
+                    className="btn-heritage-soft min-h-[40px] px-3.5 text-xs flex items-center gap-1.5"
                   >
                     <Share2 className="w-3.5 h-3.5" />
                     <span>Kartu Kutipan</span>
@@ -302,7 +302,7 @@ export function App() {
           </>
         ) : (
           /* Desktop Secondary Pages (Pillars, Quiz, Saved, Quote Studio) */
-          <main className="flex-1 min-w-0 bg-white">
+          <main className="flex-1 min-w-0 bg-[#FDF9F5]">
             {desktopActiveMode === 'pillars' && (
               <FivePillarsView
                 onBack={() => setRoute('library')}

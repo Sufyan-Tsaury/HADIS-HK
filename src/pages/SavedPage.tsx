@@ -17,7 +17,7 @@ export const SavedPage: React.FC<SavedPageProps> = ({
   onRemoveSaved,
 }) => {
   return (
-    <div className="min-h-dvh lg:min-h-0 bg-white flex flex-col pb-24 lg:pb-8">
+    <div className="min-h-dvh lg:min-h-0 bg-[#FDF9F5] flex flex-col pb-24 lg:pb-8">
       <SubpageHeader title="Koleksi Tersimpan" onBack={onBack} />
 
       <main className="max-w-2xl w-full mx-auto px-4 pt-4 flex-1">
