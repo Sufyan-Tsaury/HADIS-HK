@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/HADIS-HK/',
+  // Otomatis gunakan root '/' saat di-deploy di Vercel, atau subpath '/HADIS-HK/' untuk GitHub Pages
+  base: process.env.VERCEL ? '/' : (process.env.BASE_PATH || '/HADIS-HK/'),
   plugins: [
     react(),
     tailwindcss(),
